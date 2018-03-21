@@ -1,0 +1,35 @@
+	
+	li{
+		list-style: none;     
+		margin-left: 0px;
+		/*list-style: square inside url('/img/1.png')*/
+	}
+	li:hover{
+		/*background-color: red;*/
+		
+		/*color:#40E0D0;*/
+	}
+	#box{
+		background: #F5F5F5;
+	}
+	hr{
+
+			width: 800px;
+			color:#5151A2;
+			size: 3;
+		}
+
+	span{
+			/*	display: block;       显示块级元素*/
+				/*float: left;          全部左*/
+				margin-right: 3px;
+		}
+	img{
+				height: 17px;
+		}
+
+	p{
+				/*float: left;*/
+				margin-left: 20px;
+		}
+	

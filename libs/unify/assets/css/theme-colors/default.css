@@ -1,0 +1,25 @@
+/* 
+* Version: 1.6
+* Default Color 	  : #72c02c;
+* Default Hover Color : #5fb611;
+*/
+
+.ui-datepicker-calendar .ui-state-active {
+    border: 1px solid #72c02c;
+}
+
+/*国务院信息
+------------------------------------*/
+ .govpushinfo150203  li:before{color:#72c02c;}
+
+ 
+.rgba-80 {
+  background-color: rgba(114, 192, 44, 0.8);
+}
+.rgba-50 {
+  background-color: rgba(114, 192, 44, 0.5);
+}
+.rgba-30 {
+  background-color: rgba(114, 192, 44, 0.3);
+}
+/*If you are using default Unify color (green - #72c02c), you do not need to link (use) default.css*/
