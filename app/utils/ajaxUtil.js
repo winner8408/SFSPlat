@@ -20,15 +20,14 @@ define('utils/ajaxUtil', [], function() {
             };
             _self._ajaxPost(url, query, callback);
         },
-        search: function(url, where, start, num, callback, userid) {
+        search: function(url, where, start, num, callback) {
             var _self = this;
             var search = where == null ? '1=1' : where.trim();
             var query = {
                 q: search,
-                start: start,
-                num: num
+                currentPage: start,
+                pageSize: num
             };
-            if (userid) query.userid = userid;
             _self._ajaxPost(url, query, callback);
         },
         delete: function(url, array, callback) {

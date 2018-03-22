@@ -1,31 +1,26 @@
-﻿define('app/application/main', ['app/utils/ajaxUtil'], function() {
-  var Widget = function() {
+﻿define('application/main', ['utils/ajaxUtil'], function(ajaxUtil) {
+  var Widget = function(options) {
     var _self = this;
+    _self.options = options;
     _self.ajaxUtil = new ajaxUtil(_self.options.proxyUrl);
     _self._init();
   };
   Widget.prototype = {
     _init: function() {
       var _self = this;
-      alert('nihao');
+      _self._queryNews();
     },
-    _setDefaultOptions: function() {
-      _self.ajaxUtil.search(_self.options.OprUrls.zoningInfo.searchUrl, "administRegion.address like '%" + queryStr + "%'", _self.searchCache.start, _self.searchCache.num, function(respons) {
-        if (respons.results) {
-            _self.datas = respons.results;
+    _queryNews:function(){
+      var _self = this;
+      _self.ajaxUtil.search(_self.options.OprUrls.news.queryUrl, '1=1',1,10, function(respons) {
+        if (respons.result) {
+            _self.datas = respons.list;
             _self.viewModuls = _self.datas;
-            _self._constructTable();
             _self._constructBdMap();
-            var currentPage = Math.ceil(_self.searchCache.start / _self.searchCache.num) - 1;
-            _self._renderPagination("#pagination", currentPage, respons.totalRecords, _self.searchCache.num, function(pageIndex) {
-                _self.searchCache.start = pageIndex * _self.searchCache.num + 1;
-                _self._requestDatas();
-
-            });
-            $('.tfooter').removeClass('loading-light');
         }
-    }, 'cb49c793-2572-4687-8347-7a14e97c0848');
-    },
+    });
+    }
+    
   }
   return Widget;
 });

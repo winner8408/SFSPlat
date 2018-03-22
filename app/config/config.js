@@ -2,7 +2,7 @@
  * @author DYTH 2015
  */
 
-var baseOprUrl = "http://fangzhenjianzai.com/kzsf-server/";
+var baseOprUrl = "http://fangzhenjianzai.com/kzsf-server";
 var configOptions = {
     "authorInfoKey": "authorInfo",
     "style": "normal", //normal,dark,midnight,grayscale...
