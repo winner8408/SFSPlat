@@ -2,7 +2,7 @@
  * @author DYTH 2015
  */
 
-var baseOprUrl = "http://124.17.4.31:8080/dbas2region";
+var baseOprUrl = "http://fangzhenjianzai.com/kzsf-server/";
 var configOptions = {
     "authorInfoKey": "authorInfo",
     "style": "normal", //normal,dark,midnight,grayscale...
@@ -17,8 +17,8 @@ var configOptions = {
     },
     "thumbnailBaseUrl": baseOprUrl + "/",
     "OprUrls": {
-        "building": {
-            "queryUrl": baseOprUrl + "/building/query",
+        "news": {
+            "queryUrl": baseOprUrl + "/news/query",
             "deleteUrl": baseOprUrl + "/building/delete",
             "updateUrl": baseOprUrl + "/building/update"
         },
