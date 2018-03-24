@@ -5,7 +5,7 @@
 var baseOprUrl = "http://47.93.32.53/kzsf-platform";
 var configOptions = {
     "authorInfoKey": "authorInfo",
-    "style": "normal", //normal,dark,midnight,grayscale...
+    "style": "normal", 
     "city": "西安",
     "showBound": false,
     "zoomlevel": 6,
@@ -19,39 +19,15 @@ var configOptions = {
     "OprUrls": {
         "news": {
             "queryUrl": baseOprUrl + "/news/search",
-            "deleteUrl": baseOprUrl + "/building/delete",
+            'queryUp' :baseOprUrl  + "/news/query/up/news",
+            "queryThumbnail":baseOprUrl + '/file/item/thumbnail/news/',
             "updateUrl": baseOprUrl + "/building/update"
         },
         "notice": {
             "queryUrl": baseOprUrl + "/notice/search"
         },
-        "zoningInfo": {
-            "queryUrl": baseOprUrl + "/seismicrecord/query",
-            "deleteUrl": baseOprUrl + "/seismicrecord/delete",
-            "searchUrl": baseOprUrl + "/seismicrecord/search",
-        },
-        "statistics": {
-            "allCountUrl": baseOprUrl + "/statistics/allCount"
-        },
-        "calculator": {
-            "queryUrl": baseOprUrl + "/calculator/query",
-            "querySimpleUrl": baseOprUrl + "/calculator/querySimplify",
-            "staticUrl": baseOprUrl + "/calculator/statisticsBureau"
-        },
-        "word": {
-            "creatUrl": baseOprUrl + "/word/create"
-        },
-        "user": {
-            "addUrl": baseOprUrl + "/userdetails/add",
-            "queryUrl": baseOprUrl + "/userdetails/query",
-            "deleteUrl": baseOprUrl + "/userdetails/delete",
-            "updateUrl": baseOprUrl + "/userdetails/update"
-        },
-        "bureau": {
-            "addUrl": baseOprUrl + "/local/bureau/add",
-            "queryUrl": baseOprUrl + "/local/bureau/query",
-            "deleteUrl": baseOprUrl + "/local/bureau/delete",
-            "updateUrl": baseOprUrl + "/local/bureau/update"
+        "file": {
+            "queryUrl": baseOprUrl + "/film/item/thumbnail/news/",
         }
     },
     "enumDatas": {}

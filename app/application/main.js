@@ -10,6 +10,7 @@
       var _self = this;
       _self._queryNews();
       _self._queryNotice();
+      // _self._queryUpNews();
     },
     _queryNews:function(){
       var _self = this;
@@ -28,6 +29,54 @@
             _self._buildNoticeDom(notice);
         }
       });
+    },
+    _queryUpNews:function(){
+      var _self = this;
+      _self.ajaxUtil.search(_self.options.OprUrls.news.queryUp, '1=1',1,9, function(respons) {
+        if (respons.data) {
+            var upNews = respons.data.list;
+            _self._buildUpNewsDom(upNews);
+        }
+      });
+    },
+    _buildUpNewsDom:function(upNews){
+      var _self = this;
+      var html = '';
+      html += '<ol class="carousel-indicators">';
+      for(var i = 0 ; i < upNews.length;i++){
+         if(i== 0){
+          html += '<li class="rounded-x active" data-target="#portfolio-carousel" data-slide-to="'+ i +'">';
+          html += '</li>';
+         }else{
+          html += '<li class="rounded-x" data-target="#portfolio-carousel" data-slide-to="'+ i +'">';
+          html += '</li>';
+         }
+      };
+      html += '</ol>';
+  
+      html += ' <div class="carousel-inner divT1">';
+      upNews.forEach(function(element,index){
+        if(index == 0){
+          html += '<div class="item active">';
+        }else{
+          html += '<div class="item">';
+        }
+        html += '<a target="_blank" href="http://www.xa.gov.cnptl/def/def/index_1121_6774_ci_trid_2496279.html">';
+        html += ' <img class="img-responsive full-width" src="'+ _self.options.OprUrls.news.queryThumbnail + element.thumbnail+'" alt="'+ element.title +'"';
+        html += ' title="'+ element.title +'" style="opacity: 1; height: 280px;" />';
+        html += '</a>';
+        html += ' </div>';
+      });
+      html += '</div>';
+      html += ' <a class="left carousel-control rounded-x" href="#portfolio-carousel" role="button" data-slide="prev">';
+      html += ' <i class="fa fa-angle-left arrow-prev">';
+      html += '</i>';
+      html += '</a>';
+      html += '<a class="right carousel-control rounded-x" href="#portfolio-carousel" role="button" data-slide="next">';
+      html += '<i class="fa fa-angle-right arrow-next">';
+      html += '</i>';
+      html += '</a>';
+      $('#portfolio-carousel').html(html);
     },
     _buildNewsDom:function(news){
       var html = '';
