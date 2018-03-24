@@ -2,7 +2,7 @@
  * @author DYTH 2015
  */
 
-var baseOprUrl = "http://fangzhenjianzai.com/kzsf-server";
+var baseOprUrl = "http://47.93.32.53/kzsf-platform";
 var configOptions = {
     "authorInfoKey": "authorInfo",
     "style": "normal", //normal,dark,midnight,grayscale...
@@ -18,12 +18,12 @@ var configOptions = {
     "thumbnailBaseUrl": baseOprUrl + "/",
     "OprUrls": {
         "news": {
-            "queryUrl": baseOprUrl + "/news/query",
+            "queryUrl": baseOprUrl + "/news/search",
             "deleteUrl": baseOprUrl + "/building/delete",
             "updateUrl": baseOprUrl + "/building/update"
         },
-        "house": {
-            "queryUrl": baseOprUrl + "/house/query"
+        "notice": {
+            "queryUrl": baseOprUrl + "/notice/search"
         },
         "zoningInfo": {
             "queryUrl": baseOprUrl + "/seismicrecord/query",
