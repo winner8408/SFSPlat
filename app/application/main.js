@@ -10,7 +10,7 @@
       var _self = this;
       _self._queryNews();
       _self._queryNotice();
-      // _self._queryUpNews();
+      _self._queryUpNews();
     },
     _queryNews:function(){
       var _self = this;
