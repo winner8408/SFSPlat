@@ -26,6 +26,9 @@ var configOptions = {
         "notice": {
             "queryUrl": baseOprUrl + "/notice/search"
         },
+        "common": {
+            "queryUrl": baseOprUrl + "/common/search"
+        },
         "file": {
             "queryUrl": baseOprUrl + "/film/item/thumbnail/news/",
         }
