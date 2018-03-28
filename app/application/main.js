@@ -100,7 +100,7 @@
         html += '&bull;';
         html += '</span>';
         html += '<span class="font-color6">';
-        html += '<a href="ptl/def/def/index_1121_6774.jsp?trid=2523658" target="blank"';
+        html += '<a href="detail.html?id='+ element.id +'" target="blank"';
         html += 'title="'+ element.title +'"> ';
         html += element.title;
         html += ' </a>';
