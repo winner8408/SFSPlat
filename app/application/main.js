@@ -100,7 +100,7 @@
         html += '&bull;';
         html += '</span>';
         html += '<span class="font-color6">';
-        html += '<a href="pageContent.html?id='+ element.id +'" target="blank"';
+        html += '<a href="pageContent.html?id='+ element.id +'&type=news" target="blank"';
         html += 'title="'+ element.title +'"> ';
         html += element.title;
         html += ' </a>';
@@ -121,12 +121,12 @@
         html += '&bull;';
         html += '</span>';
         html += '<span>';
-        html += '<a target="_blank" class="color-green" href="ptl/def/def/index_1121_6899.jsp?trid=4379167&levNo=2&sortNo=1">';
+        html += '<a target="_blank" class="color-green" href="#">';
         html += '【'+ element.type +'】';
         html += '</a> ';   
         html += ' </span>';
         html += '<span class="font-color6">';
-        html += '<a href="ptl/def/def/index_1121_6774.jsp?trid=2523670" target="blank"';
+        html += '<a href="pageContent.html?id='+ element.id +'&type=notice" target="blank"';
         html += 'title="'+ element.title +'">';
         html += element.title;
         html += '</a>';

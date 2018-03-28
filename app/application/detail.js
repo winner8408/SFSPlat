@@ -14,18 +14,31 @@
     _queryDetail:function(){
       var _self = this;
       var id = _self.common.getQueryStringByKey('id');
-      _self.ajaxUtil.search(_self.options.OprUrls.news.queryItem + id, '1=1',1,9, function(respons) {
+      var type = _self.common.getQueryStringByKey('type');
+      var url = '';
+      if(type == 'news'){
+        url = _self.options.OprUrls.news.queryItem + id;
+      }else{
+        url = _self.options.OprUrls.notice.queryItem + id;
+      }
+      _self.ajaxUtil.search(url, '1=1',1,9, function(respons) {
         if (respons.data) {
           var item = respons.data;
-          _self._buildDetailDom(item);   
+          _self._buildDetailDom(item,type);   
         }
       });
     },
-    _buildDetailDom:function(item){
+    _buildDetailDom:function(item,type){
       var _self = this;
+      $('.itemType').html(item.type);
       $('.itemTitle').html(item.title);
-      $('.itemSource').html('信息来源：'+ item.source);
-      $('.itemDate').html('发布日期：'+ _self.common.formatDate(item.publishdate));
+      if(type == 'news'){
+        $('.itemSource').html('信息来源：'+ item.source);
+        $('.itemDate').html('发布日期：'+ _self.common.formatDate(item.publishdate));
+      }else{
+        $('.itemSource').html('发布者：'+ item.publisher);
+        $('.itemDate').html('发布日期：'+ _self.common.formatDate(item.publishDate));
+      }
       $('.itemContent').html(item.content);
     },
   }

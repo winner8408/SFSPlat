@@ -25,7 +25,8 @@ var configOptions = {
             "updateUrl": baseOprUrl + "/building/update"
         },
         "notice": {
-            "queryUrl": baseOprUrl + "/notice/search"
+            "queryUrl": baseOprUrl + "/notice/search",
+            "queryItem": baseOprUrl + "/notice/"
         },
         "common": {
             "queryUrl": baseOprUrl + "/common/search"
