@@ -54,6 +54,30 @@ define('utils/ajaxUtil', [], function() {
             var _self = this;
             return url.indexOf(window.location.host) > -1 ? url : _self.proxy + '?' + url;
         },
+        _ajaxGet: function(url, query, callback) {
+            var _self = this;
+            try {
+                $.ajax({
+                    url: url,
+                    data: query,
+                    dataType: "json",
+                    timeout: 30000,
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function(data, status, xhr) {
+                        if (data.error_code) {
+                            if (data.error_code.indexOf('401') >= 0)
+                                return; // gotologin
+                        }
+                        if (callback) callback(data);
+                    },
+                    error: function(xhr, error, exception) {
+                        if (callback) callback(null);
+                    }
+                });
+            } catch (e) { //Here should be delaying with error
+                if (callback) callback(null);
+            }
+        },
         _ajaxPost: function(url, query, callback, parse) {
             var _self = this;
             try {

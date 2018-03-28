@@ -19,6 +19,7 @@ var configOptions = {
     "OprUrls": {
         "news": {
             "queryUrl": baseOprUrl + "/news/search",
+            "queryItem": baseOprUrl + "/news/",
             'queryUp' :baseOprUrl  + "/news/query/up/news",
             "queryThumbnail":baseOprUrl + '/file/item/thumbnail/news/',
             "updateUrl": baseOprUrl + "/building/update"

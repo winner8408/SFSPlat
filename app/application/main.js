@@ -100,7 +100,7 @@
         html += '&bull;';
         html += '</span>';
         html += '<span class="font-color6">';
-        html += '<a href="detail.html?id='+ element.id +'" target="blank"';
+        html += '<a href="pageContent.html?id='+ element.id +'" target="blank"';
         html += 'title="'+ element.title +'"> ';
         html += element.title;
         html += ' </a>';

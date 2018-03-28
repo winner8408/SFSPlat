@@ -9,19 +9,24 @@
   Widget.prototype = {
     _init: function() {
       var _self = this;
-      _self._buildDetailDom();
+      _self._queryDetail();
     },
-    _buildDetailDom:function(){
-      var id = _self.common.getQueryStringByKey('id');
-    },
-    _queryNews:function(){
+    _queryDetail:function(){
       var _self = this;
-      _self.ajaxUtil.search(_self.options.OprUrls.news.queryUrl, '1=1',1,9, function(respons) {
+      var id = _self.common.getQueryStringByKey('id');
+      _self.ajaxUtil.search(_self.options.OprUrls.news.queryItem + id, '1=1',1,9, function(respons) {
         if (respons.data) {
-            var news = respons.data.list;
-            _self._buildNewsDom(news);
+          var item = respons.data;
+          _self._buildDetailDom(item);   
         }
       });
+    },
+    _buildDetailDom:function(item){
+      var _self = this;
+      $('.itemTitle').html(item.title);
+      $('.itemSource').html('信息来源：'+ item.source);
+      $('.itemDate').html('发布日期：'+ _self.common.formatDate(item.publishdate));
+      $('.itemContent').html(item.content);
     },
   }
   return Widget;
