@@ -169,13 +169,13 @@
                     <div class="form-group mb-4">
                       <div class="input-group">
                         <div class="input-group-addon g-brd-gray">+86</div>
-                        <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="exampleInputAmount" placeholder="请输入手机号">
+                        <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="username" placeholder="请输入手机号">
                       </div>
                     </div>
                     <div class="form-group mb-4">
                       <div class="input-group">
                         <div class="input-group-addon g-brd-gray"><i class="icon-append icon-lock" style="padding: 0 6px;"></i></div>
-                        <input type="password" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="exampleInputPassword1" placeholder="登入密码">
+                        <input type="password" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="password" placeholder="登入密码">
                       </div>
                     </div>
                     <ul class="list-inline g-mb-35">
@@ -186,7 +186,7 @@
                       </li>
                       <li class="pull-right"><a href="#" class="u-link-v5 color-green inline-link">忘记密码</a></li>
                     </ul>
-                    <button class="btn btn-danger btn-block btn-lg bgcolor-green color-light mb-4 border-radiu-50">登入</button>
+                    <button id="butLogin" class="btn btn-danger btn-block btn-lg bgcolor-green color-light mb-4 border-radiu-50">登入</button>
                   </form>
                   <footer class="text-center">
                     <p class="color-grey">尚未注册账户? <a class="u-link-v5 color-green" href="register.html">马上注册</a></p>
@@ -1308,6 +1308,16 @@
 <script type="text/javascript" src="libs/unify/assets/js/app.js"></script>
 <script type="text/javascript" src="libs/unify/assets/js/plugins/owl-recent-works.js"></script>
 <script type="text/javascript" src="libs/unify/assets/js/plugins/style-switcher.js"></script>
+<script src="libs/jquery.json.min.js" type="text/javascript"></script>
+<script src="libs/require.js" type="text/javascript"></script>
+<script type="text/javascript" src="app/config/requireConfig.js"></script>
+<script type="text/javascript" src="app/config/config.js"></script>
+
+<script type="text/javascript">
+  require(['application/login'], function(login) {
+      var login = new login(configOptions);
+  });
+</script>
 <script type="text/javascript">
 	jQuery(document).ready(function () {
 		App.init();
