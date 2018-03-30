@@ -23,10 +23,12 @@
       $('.itemType').on('click',function(){
           _self.searchCache.currentPage = 0 ;
           _self.q = "summary='"+ $.trim($(this).html()) +"'";
+          $('.titleType').html($.trim($(this).html()));
          _self._queryNews();
       });
       $('.noticeType').on('click',function(){
           _self.searchCache.currentPage = 0 ;
+          $('.titleType').html('通知公告');
           _self._queryNotice();
       });
       

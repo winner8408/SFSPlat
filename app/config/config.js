@@ -33,7 +33,11 @@ var configOptions = {
         },
         "file": {
             "queryUrl": baseOprUrl + "/film/item/thumbnail/news/",
-        }
+        },
+        "security": {
+            "sendCode": baseOprUrl + "/code/sms?mobile=",
+            "register": baseOprUrl + "/security/register",
+        },
     },
     "enumDatas": {}
 };
