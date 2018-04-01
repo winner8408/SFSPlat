@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="libs/unify/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
     <link rel="stylesheet" href="libs/unify/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
     <link rel="stylesheet" href="libs/unify/assets/plugins/bootstrap-calendar/css/bootstrap.calendar.css" />
+    <link rel="stylesheet" href="libs/unify/assets/plugins/bootstrap-validation/bootstrapValidator.css" />
+    <link rel="stylesheet" href="libs/unify/assets/plugins/bootstrap-notify/css/bootstrap-notify.css" />
 
     <!-- CSS Page Style -->
     <link rel="stylesheet" href="libs/unify/assets/css/pages/blog_magazine.css">
@@ -52,6 +54,7 @@
     <script type="text/javascript" src="libs/unify/assets/plugins/jquery-1.10.2.min.js"></script>
   </head>
   <body>
+
     <div class="main-content">
       <div id="divmsg"></div>
       <!-- STYLE-SWITCHERSTYLE
@@ -163,31 +166,31 @@
               <div class="col-md-5 col-md-offset-1">
                 <div class="login-contain">
                   <h3 class="text-center">注册</h3>
-                  <form class="g-py-15">
+                  <form id="defaultForm" class="g-py-15">
                     <div class="form-group mb-4">
-                      <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="registerName" placeholder="设置登入名">
+                      <input type="text" name="username" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="registerName"  placeholder="设置登入名">
                     </div>
                     <div class="form-group mb-4">
                       <div class="input-group">
-                        <input type="password" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="registerPassword" placeholder="设置您的登入密码">
+                        <input type="password" name="password" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="registerPassword"  placeholder="设置您的登入密码">
                         <div class="input-group-addon g-brd-gray"><i class="icon-append icon-eye" style="padding: 0 6px;"></i></div>
                       </div>
                     </div>
                     <div class="form-group mb-4">
                       <div class="input-group">
-                        <input type="password" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="registerPasswordto" placeholder="请再次输入您的登入密码">
+                        <input type="password" name="confirmPassword" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="registerPasswordto" placeholder="请再次输入您的登入密码">
                         <div class="input-group-addon g-brd-gray"><i class="icon-append icon-eye" style="padding: 0 6px;"></i></div>
                       </div>
                     </div>
                     <div class="form-group mb-4">
                       <div class="input-group">
                         <div class="input-group-addon g-brd-gray">+86</div>
-                        <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="registerMobile" placeholder="请输入手机号">
-                        <div class="input-group-addon g-brd-gray color-green "> <input type="button" id="sendcode"  value="获取验证码"></div>
+                        <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" name="registerMobile" id="registerMobile" placeholder="请输入手机号">
+                        <div class="input-group-addon g-brd-gray color-green "> <input type="button"  id="sendcode" style="border:0px;padding:9px;" value="获取验证码"></div>
                       </div>
                     </div>
                     <div class="form-group mb-4">
-                      <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="registerCode" placeholder="请输入您的验证码">
+                      <input type="text" name="registerCode" class="form-control g-px-15 g-py-15 auto-height g-brd-gray"  id="registerCode" placeholder="请输入您的验证码">
                     </div>
                     <ul class="list-inline g-mb-35">
                       <li>
@@ -196,8 +199,8 @@
                         </div>
                       </li>
                     </ul>
-                    <button id="butRegister" class="btn btn-danger btn-block btn-lg bgcolor-green color-light mb-4 border-radiu-50">注册</button>
                   </form>
+                  <button id="butRegister" class="btn btn-danger btn-block btn-lg bgcolor-green color-light mb-4 border-radiu-50">注册</button>
                   <footer class="text-center">
                     <p class="color-grey">已经注册账户? <a class="u-link-v5 color-green" href="#">快捷登入</a></p>
                   </footer>
@@ -1304,9 +1307,13 @@
 </html>
 <!-- JS Global Compulsory -->
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery/jquery.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jQuery-jcMarquee.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="libs/unify/assets/plugins/bootstrap-notify/js/bootstrap-notify.js"></script>
+<script type="text/javascript" src="libs/unify/assets/plugins/bootstrap-validation/bootstrapValidator.js"></script>
+
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="libs/unify/assets/plugins/back-to-top.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery.parallax.js"></script>
@@ -1325,10 +1332,74 @@
 <script type="text/javascript" src="app/config/config.js"></script>
 
 <script type="text/javascript">
+
+
   require(['application/register'], function(register) {
       var register = new register(configOptions);
   });
 </script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#defaultForm').bootstrapValidator({
+          message: 'This value is not valid',
+          feedbackIcons: {
+              // valid: 'glyphicon glyphicon-ok',
+              // invalid: 'glyphicon glyphicon-remove',
+              validating: 'glyphicon glyphicon-refresh'
+          },
+          fields: {
+              username: {
+                  message: 'The username is not valid',
+                  validators: {
+                      notEmpty: {
+                          message: '用户名不能为空'
+                      },
+                  }
+              },
+              registerMobile: {
+                  validators: {
+                      notEmpty: {
+                          message: '电话不能为空'
+                      },
+                     regexp: {
+                         regexp: /^1[3|5|8]{1}[0-9]{9}$/,
+                         message: '请输入正确的手机号码'
+                     }
+                  }
+              },
+              registerCode: {
+                  validators: {
+                      notEmpty: {
+                          message: '验证码不能为空'
+                      }
+                  }
+              },
+              password: {
+                  validators: {
+                      notEmpty: {
+                          message: '密码不能为空'
+                      },
+                      identical: {
+                          field: 'confirmPassword',
+                          message: '密码不一致'
+                      }
+                  }
+              },
+              confirmPassword: {
+                  validators: {
+                      notEmpty: {
+                          message: '密码不能为空'
+                      },
+                      identical: {
+                          field: 'password',
+                          message: '密码不一致'
+                      }
+                  }
+              }
+          }
+      });
+  });
+  </script>
 
 <script type="text/javascript">
 	jQuery(document).ready(function () {
@@ -1400,7 +1471,7 @@
     }
 </script>
 <script>
-  $(function () {
+  $(function (){
       $('#Marquee').jcMarquee({
           'marquee': 'y',
           'margin_bottom': '0',
@@ -1408,4 +1479,5 @@
           'speed': 50
       });
   });
+
 </script>

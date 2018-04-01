@@ -37,41 +37,79 @@ define('application/register', ['utils/ajaxUtil', 'utils/common'], function(ajax
                 }
             });
         },
-        _register:function(){
+        _formartUrl: function(url) {
+            var _self = this;
+            return url.indexOf(window.location.host) > -1 ? url : _self.options.proxyUrl + '?' + url;
+        },
+        _register:function() {
             var _self = this;
             $('#butRegister').on('click',function(){
+                $('#defaultForm').data('bootstrapValidator').validate();//手动对表单进行校检
+                if (!$('#defaultForm').data('bootstrapValidator').isValid()) {//判断校检是否通过
+                    return;
+                }else {
+                    //提交动作
+                }
+                var registerCode = $('#registerCode').val();
                 var user = {
-                    name : $('#registerName').val(),
-                    fullname: $('#registerName').val(),
-                    mobile: $('#registerMobile').val(),
-                    password: $('#registerPassword').val()
-                }
-                var smsCode= $('#registerCode').val();
-                try {
-                    $.ajax({
-                        type: "POST",
-                        url: _self.options.OprUrls.security.register + '?mobile=' + user.mobile + '&smscode=' + smsCode,
-                        data: user,
-                        dataType: "json",
-                        contentType: "application/json",
-                        timeout: 30000,
-                        success: function(data, status, xhr) {
-                            if (data.error_code) {
-                                if (data.error_code.indexOf('401') >= 0)
-                                    return; // gotologin
-                            }
-                            if (callback) callback(data);
-                        },
-                        error: function(xhr, error, exception) {
-                            if (callback) callback(null);
+                    name:$('#registerName').val(),
+                    fullname:$('#registerName').val(),
+                    mobile:$('#registerMobile').val(),
+                    password:$('#registerPassword').val(),
+            
+                };
+                $.ajax({
+                    type : "POST",
+                    url : _self._formartUrl(_self.options.OprUrls.security.register+"?mobile="+user.mobile+"&smsCode="+ registerCode),
+                    data : JSON.stringify(user),
+                    contentType : "application/json",
+                    dataType : "json",
+                    timeout: 30000,
+                    // complete:function(msg) {
+                    //   alert(msg);
+                    // }
+                    success: function(data, status, xhr) {
+                        if (data.result) {
+                           window.location.href = 'login.html?username='+ data.data;
+                        }else{
+                            var notify= _self.notifyMsg(data.content);
                         }
-                    });
-                } catch (e) { //Here should be delaying with error
-                    if (callback) callback(null);
-                }
-                
-            })
+                    },
+                    error: function(xhr, error, exception) {
+    
+                    }
+                });
+            });
         },
+        notifyMsg: function(msg){
+            var notify =  $.notify({
+                 // options
+                 icon: 'glyphicon glyphicon-warn-sign',
+                 title: '警告:',
+                 message: msg,
+                 target: '_blank'
+             },{
+                 // settings
+                 element: 'body',
+                 position: null,
+                 type: "danger",
+                 allow_dismiss: true,
+                 newest_on_top: true,
+                 showProgressbar: false,
+                 placement: {
+                     from: "top",
+                     align: "right"
+                 },
+                 offset: 20,
+                 spacing: 10,
+                 z_index: 1031,
+                 delay: 5000,
+                 timer: 1000,
+                 url_target: '_blank'
+             });
+     
+            return notify;
+         }
     };
 
     return Widget;

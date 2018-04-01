@@ -16,6 +16,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png" >
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="libs/unify/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/unify/assets/plugins/bootstrap-notify/css/bootstrap-notify.css" />
     <link rel="stylesheet" href="libs/unify/assets/css/style.css">
     <link rel="stylesheet" href="libs/unify/assets/css/style-switcher.css">
     <link rel="stylesheet" href="libs/unify/assets/plugins/brand-buttons/brand-buttons.css">
@@ -165,17 +166,17 @@
                   <h3>密码登入</h3>
                   <h2 class="qrcode" title="扫码登入">扫码登入</h2>
                   <h2 class="static" title="密码登入">密码登入</h2>
-                  <form class="g-py-15">
+                  <form class="g-py-15" id="loginForm" action="" method ="post">   
                     <div class="form-group mb-4">
                       <div class="input-group">
-                        <div class="input-group-addon g-brd-gray">+86</div>
-                        <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="username" placeholder="请输入手机号">
+                        <div class="input-group-addon g-brd-gray"><i class="icon-append icon-user" style="padding: 0 6px;"></i></div>
+                        <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="username" name="username" placeholder="请输入手机号">
                       </div>
                     </div>
                     <div class="form-group mb-4">
                       <div class="input-group">
                         <div class="input-group-addon g-brd-gray"><i class="icon-append icon-lock" style="padding: 0 6px;"></i></div>
-                        <input type="password" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="password" placeholder="登入密码">
+                        <input type="password" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" name="password" id="password" placeholder="登入密码">
                       </div>
                     </div>
                     <ul class="list-inline g-mb-35">
@@ -186,8 +187,9 @@
                       </li>
                       <li class="pull-right"><a href="#" class="u-link-v5 color-green inline-link">忘记密码</a></li>
                     </ul>
-                    <button id="butLogin" class="btn btn-danger btn-block btn-lg bgcolor-green color-light mb-4 border-radiu-50">登入</button>
+                    
                   </form>
+                  <button id="butLogin" class="btn btn-danger btn-block btn-lg bgcolor-green color-light mb-4 border-radiu-50">登入</button>
                   <footer class="text-center">
                     <p class="color-grey">尚未注册账户? <a class="u-link-v5 color-green" href="register.html">马上注册</a></p>
                   </footer>
@@ -1297,6 +1299,7 @@
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jQuery-jcMarquee.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="libs/unify/assets/plugins/bootstrap-notify/js/bootstrap-notify.js"></script>
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="libs/unify/assets/plugins/back-to-top.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery.parallax.js"></script>

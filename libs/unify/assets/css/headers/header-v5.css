@@ -683,7 +683,7 @@
     }   
 
     .header-v5 .open > .dropdown-menu {
-        display: none;
+        /* display: none;  */
     }
 
     .header-v5 .dropdown-menu li.dropdown-submenu:hover > a {

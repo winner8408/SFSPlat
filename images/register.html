@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <button name="aaa" onclick="register()">发送</button>
+    <input type="text" id="aaa">
+    <script>
+
+        function register() {
+
+            var bbb = $('#aaa').val();
+
+            var user = {
+                name:"aaaa",
+                fullname:"aaaa",
+                mobile:"11111",
+                password:"123"
+
+            };
+            $.ajax({
+                type : "POST",
+                url : "http://192.168.1.157:8080/dyth/security/register?mobile=18911797115&smsCode=6367",
+                data : JSON.stringify(user),
+                contentType : "application/json",
+                dataType : "json",
+                complete:function(msg) {
+                    layer.msg("报修成功",{time:2000});
+                    layer.close(madd_data.w_c_index);
+                }
+            });
+        }
+
+        function send() {
+
+        }
+    </script>
+</body>
+</html>

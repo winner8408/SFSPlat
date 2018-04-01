@@ -9,10 +9,24 @@
   Widget.prototype = {
     _init: function() {
       var _self = this;
+      // _self._getAuthorInfo();
       _self._queryNews();
       _self._queryNotice();
       _self._queryUpNews();
       _self._queryCommon();
+    },
+    _getAuthorInfo: function() {
+      var _self = this;
+      if (cookies == "" || cookies == null || cookies == undefined) {
+        window.location.href = "login.html";
+      } else {
+        _self.options.authorInfo = $.parseJSON(cookies);
+        $(".dropdown-toggle").html('<img alt="logo" src="images/user.png"> 欢迎，' + _self.options.authorInfo.username + ' <i class="icon-chevron-down"></i>');
+        if(_self.options.authorInfo.localBureau != '中国地震局地球物理研究所'){
+          $('#usermanager').css('display', 'none');
+          $('#statics').css('display', 'none');
+        }
+      }
     },
     _queryNews:function(){
       var _self = this;
