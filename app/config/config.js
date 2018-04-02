@@ -30,6 +30,9 @@ var configOptions = {
         "file": {
             "queryUrl": baseOprUrl + "/film/item/thumbnail/news/",
         },
+        "project": {
+            "createUrl": baseOprUrl + "/project/create",
+        },
         "security": {
             "sendCode": baseOprUrl + "/code/sms?mobile=",
             "register": baseOprUrl + "/security/register",
