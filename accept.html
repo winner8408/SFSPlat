@@ -16,7 +16,6 @@
     <link rel="icon" type="image/png" href="images/favicon.png" >
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="libs/unify/assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="libs/unify/assets/plugins/bootstrap-notify/css/bootstrap-notify.css" />
     <link rel="stylesheet" href="libs/unify/assets/css/style.css">
     <link rel="stylesheet" href="libs/unify/assets/css/style-switcher.css">
     <link rel="stylesheet" href="libs/unify/assets/plugins/brand-buttons/brand-buttons.css">
@@ -134,104 +133,371 @@
                         <li><a href="http://mail.xa.gov.cn" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;邮箱地址</a></li>
                       </ul>
                     </li>
-                    <li>
-                      <a>登入</a>
+                    <li class="loginBut">
+                      <a href="login.html">登入</a>
+                    </li>
+                    <li class="userInfo" style="display:none;">
+                      <a data-toggle="dropdown" class="dropdown-toggle username" href="#">
+                          欢迎， 陈波 <b class="caret"></b>
+                      </a>
+                      <ul style="margin-top:-10px;" role="menu" class="dropdown-setting dropdown-menu">
+                          <li>
+                              <a href="mycontent.html">
+                                  <span class="entypo-user"></span> &#160;&#160;个人资料
+                              </a>
+                          </li>
+                          <li>
+                              <a href="login.html">
+                                  <span class="entypo-logout"></span> &#160;&#160; 退出
+                              </a>
+                          </li>
+                      </ul>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="container-fluid bg-gray">
+          <!-- NavBar -->
           <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <h2 class="f-wt-300">欢迎登入</h2>
+            <div class="navbar navbar-default mega-menu" role="navigation" >
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand no-padding-top no-padding-bottom" href="/ptl/index.html">
+                  <img id="logo-header" src="libs/unify/assets/img/themes/logo1-red.png" alt="Logo" style="height: 68px; display: inline-block;"/>
+                </a>
               </div>
-              <div class="col-md-6">
-                <ul class="breadcrumb padding-0 pull-right">
-                  <li><a href="index.html">首页</a></li>
-                  <li class="active">登入</li>
+              <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav pull-right">
+                  <!-- Pages -->
+                  <li class="active">
+                    <a href="index.html">
+                      首页
+                    </a>
+                  </li>
+                  <!-- End Home -->
+                  <!-- Pages -->
+                  <li class="mega-menu-fullwidth">
+                    <a href="http://www.xa.gov.cn/ptl/def/def/index_1121_6899.html" target="_blank">
+                      震防规划
+                    </a>
+                  </li>
+                  <!-- End Pages -->
+                  <!-- Blog -->
+                  <li class="mega-menu-fullwidth">
+                    <a href="http://www.xa.gov.cn/ptl/def/def/index_1121_6493.html" target="_blank">
+                      安居工程
+                    </a>
+                  </li>
+                  <!-- End Blog -->
+                  <!-- Portfolio -->
+                  <li class="mega-menu-fullwidth">
+                    <a href="http://www.xa.gov.cn/ptl/def/def/index_1121_7564.html" target="_blank">
+                      办事指南
+                    </a>
+                  </li>
+                  <!-- End Portfolio -->
+                  <!-- Features -->
+                  <li class="mega-menu-fullwidth">
+                    <a href="http://www.xa.gov.cn/ptl/def/def/index_1121_7939.html" target="_blank">
+                      信息公开
+                    </a>
+                  </li>
+                  <!-- End Features -->
+                  <!-- Shortcodes -->
+                  <li class="mega-menu-fullwidth">
+                    <a href="http://hudong.xa.gov.cn/usl/hdjl/index.aspx" target="_blank">
+                      关于
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <div class="container-fluid bg-gray g-py-15">
+          <div class="container">
+            <ul class="breadcrumb padding-0">
+              <li><a href="index.html">我的申请</a></li>
+              <li><a href="#">一般建设工程抗震设防竣工验收</a></li>
+              <li class="active">新建申请</li>
+            </ul>
+          </div>
+        </div>
         <div class="container margin-bottom-20 padding-0">
           <div class="container g-py-100">
-            <div class="row">
-              <div class="col-md-5">
-                <div class="login-contain">
-                  <h3>密码登入</h3>
-                  <h2 class="qrcode" title="扫码登入">扫码登入</h2>
-                  <h2 class="static" title="密码登入">密码登入</h2>
-                  <form class="g-py-15" id="loginForm" action="" method ="post">   
-                    <div class="form-group mb-4">
-                      <div class="input-group">
-                        <div class="input-group-addon g-brd-gray"><i class="icon-append icon-user" style="padding: 0 6px;"></i></div>
-                        <input type="text" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" id="username" name="username" placeholder="请输入用户名">
-                      </div>
-                    </div>
-                    <div class="form-group mb-4">
-                      <div class="input-group">
-                        <div class="input-group-addon g-brd-gray"><i class="icon-append icon-lock" style="padding: 0 6px;"></i></div>
-                        <input type="password" class="form-control g-px-15 g-py-15 auto-height g-brd-gray" name="password" id="password" placeholder="登入密码">
-                      </div>
-                    </div>
-                    <ul class="list-inline g-mb-35">
-                      <li>
-                        <div class="checkbox">
-                          <label><input type="checkbox"> 保持登入状态</label>
-                        </div>
-                      </li>
-                      <li class="pull-right"><a href="#" class="u-link-v5 color-green inline-link">忘记密码</a></li>
-                    </ul>
-                    
-                  </form>
-                  <button id="butLogin" class="btn btn-danger btn-block btn-lg bgcolor-green color-light mb-4 border-radiu-50">登入</button>
-                  <footer class="text-center">
-                    <p class="color-grey">尚未注册账户? <a class="u-link-v5 color-green" href="register.html">马上注册</a></p>
-                  </footer>
-                </div>
+            <div class="row g-mb-100">
+              <div class="col-md-2 text-center col-md-offset-1">
+                <span class="mb-3 step-header step-header1 bgcolor-green active"><i>1</i></span>
+                <h4 class="step-text">建设单位情况</h4>
               </div>
-              <div class="col-md-6 col-md-offset-1">
-                <h4 class="color-green">强化实施建设工程抗震设防监管，</h4>
-                <h4 class="color-green">是抵御地震灾害的重要基石和减轻地震灾害的重要途径！</h4>
-                <p class="color-grey">《中华人民共和国防震减灾法》</p>
-                <div class="service col-md-10">
-                  <div class="pull-left">
-                    <i class="icon-briefcase service-icon">
-                    </i>
-                    <div class="color-green">
-                      在线办理
-                    </div>
-                  </div>
-                  <div class="desc">
-                    <p  class="color-grey" style="font-size: 14px; line-height: 2; text-indent: 0;">
-                      一站式在线办理《一般建设工程抗震设防要求参数确定》及《一般建设工程抗震设防竣工验收》申请，全面落实“不见面审批”政策，方便广大群众。
-                    </p>
-                  </div>
-                </div>
-                <div class="service col-md-10">
-                  <div class="pull-left">
-                    <i class="icon-screen-smartphone service-icon">
-                    </i>
-                    <div class="color-green">
-                      手机办理
-                    </div>
-                  </div>
-                  <div class="desc">
-                    <p  class="color-grey" style="font-size: 14px; line-height: 2; text-indent: 0;">
-                      平台同时提供了基于移动端应用的《一般建设工程抗震设防要求参数确定》及《一般建设工程抗震设防竣工验收》申请，随时随地查询申请审批状态。
-                    </p>
-                  </div>
-                </div>
-                <div class="col-md-5"><img class="img-responsive center-block" src="images/ios.png" style="max-height: 120px;"></div>
-                <div class="col-md-5"><img class="img-responsive center-block" src="images/android.png" style="max-height: 120px;"></div>
+              <div class="col-md-2  text-center">
+                <span class="mb-3 step-header  step-header2"><i>2</i></span>
+                <h4 class="step-text">建设项目情况</h4>
+              </div>
+              <div class="col-md-2 text-center">
+                <span class="mb-3 step-header step-header3"><i>3</i></span>
+                <h4 class="step-text">规划单位情况</h4>
+              </div>
+              <div class="col-md-2 text-center">
+                  <span class="mb-3 step-header step-header4"><i>4</i></span>
+                  <h4 class="step-text">监理单位情况</h4>
+              </div>
+              <div class="col-md-2 text-center">
+                  <span class="mb-3 step-header step-header5"><i>5</i></span>
+                  <h4 class="step-text">施工单位情况</h4>
               </div>
             </div>
-          </div>
+            <div class="row form01" >
+              <div class="col-md-8 col-md-offset-2">
+                <form class="form-horizontal" id="form_01">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label g-py-15">建设单位名称</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="constructioncompany" id="inputEmail3" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">建设单位地址</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height"  name="constructionaddress" id="inputPassword3">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">建设单位联系人</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="constructioncontact"  id="inputPassword3" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">建设工商注册号</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height"  name="constructionregisteredno" id="inputPassword3" >
+                    </div>
+                  </div>
+                  <div class="form-group g-mb-100">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">建设单位联系电话</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="constructiontelephone" id="inputPassword3" >
+                    </div>
+                  </div>
+                </form>
+                <div class="col-md-3 col-md-offset-5 text-center">
+                  <button id="firstSubmit" class="btn btn-danger btn-block btn-lg bgcolor-green">下一步</button>
+                </div>
+              </div>
+            </div>
+            <div class="row form02" style="display:none;">
+              <div class="col-md-8 col-md-offset-2">
+                <form class="form-horizontal" id="form_02">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label g-py-15">建设项目名称</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="projectName" id="inputEmail3" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">建设项目地址</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="projectAddress" id="inputPassword3" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">抗震防设要求</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="seismicfortification" id="inputPassword3" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">立项批准部分</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="projectapprovaldepartment" id="inputPassword3" >
+                    </div>
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">开工时间</label>
+                    <div class="col-sm-9">
+                      <input type="date" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="starttime" id="inputPassword3" >
+                    </div>
+                  </div>
+                  <div class="form-group g-mb-100">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">竣工时间</label>
+                    <div class="col-sm-9">
+                      <input type="date" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="completiontime" id="inputPassword3" >
+                    </div>
+                  </div> -->
+                </form>
+                <div class="col-md-3 col-md-offset-5 text-center">
+                  <button id="secondSubmit" class="btn btn-danger btn-block btn-lg bgcolor-green">下一步</button>
+                </div>
+              </div>
+            </div>
+            <div class="row form03" style="display:none;">
+              <div class="col-md-8 col-md-offset-2">
+                <form class="form-horizontal" id="form_03">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label g-py-15">设计单位名称</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="designcompany" id="inputEmail3" placeholder="项目类型">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">设计单位地址</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="designaddress" id="inputPassword3" placeholder="总占地面积">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">设计资质证编号</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="designcertificateno"  id="inputPassword3" placeholder="总建筑面积">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">设计单位项目负责人</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="designprojectperson" id="inputPassword3" placeholder="主体建筑最大高度">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">设计邮政编码</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="designzipcode" id="inputPassword3" placeholder="主体建筑最大高度">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label g-py-15">设计资质等级</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="designcertificatelevel" id="inputPassword3" placeholder="主体建筑最大高度">
+                        </div>
+                  </div>
+                  <div class="form-group g-mb-100">
+                    <label for="inputPassword3" class="col-sm-3 control-label g-py-15">设计联系电话</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="designtelephone" id="inputPassword3" placeholder="主题建筑最高层数">
+                    </div>
+                  </div>
+                </form>
+                <div class="col-md-3 col-md-offset-5 text-center">
+                  <button id="thirdSubmit" class="btn btn-danger btn-block btn-lg bgcolor-green">下一步</button>
+                </div>
+              </div>
+            </div>
+            <div class="row form04" style="display:none;">
+                <div class="col-md-8 col-md-offset-2">
+                  <form class="form-horizontal" id="form_04">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label g-py-15">监理单位</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="supervisorycompany" id="inputEmail3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">监理单位地址</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="supervisoryaddress" id="inputPassword3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">监理资质证编号</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="supervisorycertificateno"  id="inputPassword3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">监理项目负责人</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="supervisorprojectperson" id="inputPassword3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label g-py-15">监理邮政编码</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="supervisorzipcode"  id="inputPassword3" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">监理资质等级</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="supervisorcertificatelevel" id="inputPassword3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label g-py-15">监理联系电话</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="supervisortelephone" id="inputPassword3" >
+                        </div>
+                    </div>
+                  </form>
+                  <div class="col-md-3 col-md-offset-5 text-center">
+                    <button id="fourSubmit" class="btn btn-danger btn-block btn-lg bgcolor-green">下一步</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row form05" style="display:none;">
+                <div class="col-md-8 col-md-offset-2">
+                  <form class="form-horizontal" id="form_05">
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-3 control-label g-py-15">施工单位</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingcompany" id="inputEmail3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">施工单位地址</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingaddress" id="inputPassword3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">施工单位资质证编号</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingcertificateno"  id="inputPassword3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label g-py-15">施工单位项目负责人</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingprojectperson"  id="inputPassword3" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label g-py-15">施工单位邮政编码</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingzipcode"  id="inputPassword3" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">施工单位资质等级</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingcertificatelevel" id="inputPassword3" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label g-py-15">施工单位联系电话</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingtelephone" id="inputPassword3" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label g-py-15">附件(文档)</label>
+                        <div class="col-sm-9">
+                          <input type="file" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="file_700003" id="inputPassword3">
+                        </div>
+                  </div>
+                  </form>
+                  <div class="col-md-3 col-md-offset-5 text-center">
+                    <button id="fiveSubmit" class="btn btn-danger btn-block btn-lg bgcolor-green">下一步</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
       <div class="well no-padding no-margin footer-links" style="padding: 0 1px; ">
@@ -1298,8 +1564,7 @@
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery/jquery.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jQuery-jcMarquee.js"></script>
-<script type="text/javascript" src="libs/unify/assets/plugins/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="libs/unify/assets/plugins/bootstrap-notify/js/bootstrap-notify.js"></script>
+
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="libs/unify/assets/plugins/back-to-top.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery.parallax.js"></script>
@@ -1311,16 +1576,20 @@
 <script type="text/javascript" src="libs/unify/assets/js/app.js"></script>
 <script type="text/javascript" src="libs/unify/assets/js/plugins/owl-recent-works.js"></script>
 <script type="text/javascript" src="libs/unify/assets/js/plugins/style-switcher.js"></script>
+
+<script type="text/javascript" src="libs/unify/assets/plugins/bootstrap/js/bootstrap.js"></script>
+
 <script src="libs/jquery.json.min.js" type="text/javascript"></script>
 <script src="libs/require.js" type="text/javascript"></script>
 <script type="text/javascript" src="app/config/requireConfig.js"></script>
 <script type="text/javascript" src="app/config/config.js"></script>
 
 <script type="text/javascript">
-  require(['application/login'], function(login) {
-      var login = new login(configOptions);
+  require(['application/accept'], function(accept) {
+      var accept = new accept(configOptions);
   });
 </script>
+
 <script type="text/javascript">
 	jQuery(document).ready(function () {
 		App.init();

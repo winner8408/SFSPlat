@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>地址无法访问（404错误）</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css"></link>
+    <script type="text/javascript">
+var printMessage = function() {
+	var dis = document.getElementById("errorMession");
+	if (dis.style.display == "none") {
+		dis.style.display = "block";
+	} else {
+		//dis.style.display=="none"
+	}
+}
+</script>
+    <style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+}
+</style>
+  </head>
+  <body style="margin-left: auto; margin-right: auto;">
+    <div style="width: 840px; text-align: left; margin-left: auto; margin-right: auto; line-height: 50px; font-family: 微软雅黑;">
+      <div style="margin-top: 20px;">
+        <!--  <img src="/error/logo.png" alt="" /> -->
+      </div>
+      <div style="margin-top: 55px; font-size: 24px; font-family: 微软雅黑; color: navy;">
+        非常抱歉，当前请求的页面地址无法访问，可能已经删除、更名或暂时不可用。
+      </div>
+      <div style="margin-top: 20px; font-size: 16px; line-height: 2em;">
+        <b> 当前请求的网页地址可能有拼写错误，或者您要找的页面已关闭。</b>
+        <br />
+        请尝试以下操作：
+        <br />
+        1、确保浏览器的地址栏中显示的网站地址的拼写和格式正确无误。
+        <br />
+        2、 如果通过单击链接而到达了该页面，请与网站管理员联系，通知他们正确的链接。
+        <br />
+      </div>
+    </div>
+  </body>
+</html>

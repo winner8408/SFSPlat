@@ -31,7 +31,12 @@ var configOptions = {
             "queryUrl": baseOprUrl + "/film/item/thumbnail/news/",
         },
         "project": {
+            "queryUrl": baseOprUrl + "/project/search",
             "createUrl": baseOprUrl + "/project/create",
+        },
+        "acceptance": {
+            "queryUrl": baseOprUrl + "/acceptance/search",
+            "createUrl": baseOprUrl + "/acceptance/create",
         },
         "security": {
             "sendCode": baseOprUrl + "/code/sms?mobile=",

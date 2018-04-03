@@ -133,8 +133,25 @@
                         <li><a href="http://mail.xa.gov.cn" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;邮箱地址</a></li>
                       </ul>
                     </li>
-                    <li>
-                      <a>登入</a>
+                    <li class="loginBut">
+                      <a href="login.html">登入</a>
+                    </li>
+                    <li class="userInfo" style="display:none;">
+                      <a data-toggle="dropdown" class="dropdown-toggle username" href="#">
+                          欢迎， 陈波 <b class="caret"></b>
+                      </a>
+                      <ul style="margin-top:-10px;" role="menu" class="dropdown-setting dropdown-menu">
+                          <li>
+                              <a href="mycontent.html">
+                                  <span class="entypo-user"></span> &#160;&#160;个人资料
+                              </a>
+                          </li>
+                          <li>
+                              <a href="login.html">
+                                  <span class="entypo-logout"></span> &#160;&#160; 退出
+                              </a>
+                          </li>
+                      </ul>
                     </li>
                   </ul>
                 </div>
@@ -285,7 +302,7 @@
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label g-py-15">投资金额（万元）</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="projectMoney" id="inputPassword3" placeholder="投资金额（万元）">
+                      <input type="number" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="projectMoney" id="inputPassword3" placeholder="投资金额（万元）">
                     </div>
                   </div>
                   <div class="form-group">
@@ -314,7 +331,7 @@
             </div>
             <div class="row form03" style="display:none;">
               <div class="col-md-8 col-md-offset-2">
-                <form class="form-horizontal" id="form_03">
+                <form class="form-horizontal" enctype="multipart/form-data" id="form_03">
                   <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label g-py-15">项目类型</label>
                     <div class="col-sm-9">
@@ -323,27 +340,39 @@
                   </div>
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label g-py-15">总占地面积</label>
-                    <div class="col-sm-90">
-                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="grossArea" id="inputPassword3" placeholder="总占地面积">
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="grossArea" id="inputPassword3" placeholder="总占地面积">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label g-py-15">总建筑面积</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="grossBuildingArea"  id="inputPassword3" placeholder="总建筑面积">
+                      <input type="number" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="grossBuildingArea"  id="inputPassword3" placeholder="总建筑面积">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label g-py-15">主体建筑最大高度</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingHeight" id="inputPassword3" placeholder="主体建筑最大高度">
+                      <input type="number" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingHeight" id="inputPassword3" placeholder="主体建筑最大高度">
                     </div>
                   </div>
-                  <div class="form-group g-mb-100">
+                  <div class="form-group ">
                     <label for="inputPassword3" class="col-sm-3 control-label g-py-15">主题建筑最高层数</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingFloor" id="inputPassword3" placeholder="主题建筑最高层数">
+                      <input type="number" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="buildingFloor" id="inputPassword3" placeholder="主题建筑最高层数">
                     </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-3 control-label g-py-15">附件1(图片)</label>
+                      <div class="col-sm-9">
+                        <input type="file" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="file_700001" id="inputPassword3" >
+                      </div>
+                  </div>
+                  <div class="form-group g-mb-100">
+                        <label for="inputPassword3" class="col-sm-3 control-label g-py-15">附件2(文档)</label>
+                        <div class="col-sm-9">
+                          <input type="file" class="form-control g-py-15 g-px-15 g-brd-gray auto-height" name="file_700002" id="inputPassword3">
+                        </div>
                   </div>
                 </form>
                 <div class="col-md-3 col-md-offset-5 text-center">

@@ -85,7 +85,7 @@
         }else{
           html += '<div class="item">';
         }
-        html += '<a target="_blank" href="http://www.xa.gov.cnptl/def/def/index_1121_6774_ci_trid_2496279.html">';
+        html += '<a target="_blank" href="pageContent.html?id='+element.id+'&type=news">';
         html += ' <img class="img-responsive full-width" src="'+ _self.options.OprUrls.news.queryThumbnail + element.thumbnail+'" alt="'+ element.title +'"';
         html += ' title="'+ element.title +'" style="opacity: 1; height: 280px;" />';
         html += '</a>';
