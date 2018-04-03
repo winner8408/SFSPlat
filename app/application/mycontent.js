@@ -42,9 +42,12 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                 html += element.statusname;
                 html += '</td>';
                 html += '<td class="text-center ">';
-                html += element.statusname;
+                if(element.typename == '参数确定' && element.statusname == '已发证'){
+                    html += '<a id="datarows_123456" name="datarows_123456" title="'+ element.projectname +'" href="accept.html?id='+ element.projectid +'" target="_blank">申请验收</a>';
+                }else{
+                    html += '办理中'
+                }
                 html += '</td>';
-                
                 html += '</tr>';
              });
              $('#projectList').html(html);
