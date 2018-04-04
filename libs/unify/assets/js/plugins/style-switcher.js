@@ -25,11 +25,13 @@ var StyleSwitcher = function () {
             var setColor = function (color, data_header) {
                 jQuery('#style_color').attr("href", "js/unify/assets/css/theme-colors/" + color + ".css");
                 if(data_header == 'light'){
-                    jQuery('#logo-header').attr("src", "js/unify/assets/img/themes/logo1-" + color + ".png");
+                    jQuery('#logo-header').attr("src", "libs/unify/assets/img/themes/logo1-red.png");
+                    // jQuery('#logo-header').attr("src", "js/unify/assets/img/themes/logo1-" + color + ".png");
                     jQuery('.shrink-logo').attr("src", "js/unify/assets/img/themes/logo1-" + color + ".png");
                     jQuery('#logo-footer').attr("src", "js/unify/assets/img/themes/logo2-" + color + ".png");
                 } else if(data_header == 'dark'){
-                    jQuery('#logo-header').attr("src", "js/unify/assets/img/themes/logo1-" + color + ".png");
+                    jQuery('#logo-header').attr("src", "libs/unify/assets/img/themes/logo1-red.png");
+                    // jQuery('#logo-header').attr("src", "js/unify/assets/img/themes/logo1-" + color + ".png");
                     jQuery('.shrink-logo').attr("src", "js/unify/assets/img/themes/logo1-" + color + ".png");
                     jQuery('#logo-footer').attr("src", "js/unify/assets/img/themes/logo2-" + color + ".png");
                 }

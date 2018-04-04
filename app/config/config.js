@@ -33,6 +33,8 @@ var configOptions = {
         "project": {
             "queryUrl": baseOprUrl + "/project/search",
             "createUrl": baseOprUrl + "/project/create",
+            "download":  baseOprUrl + "/template/pdf/",
+            "downloadAccept":  baseOprUrl + "/template/pdf/acceptance/",
         },
         "acceptance": {
             "queryUrl": baseOprUrl + "/acceptance/search",

@@ -18,8 +18,7 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                 html += '<tr>';
 
                 html += '<td style="height:37px;overflow:hidden;">';
-                html += '<a title="'+ element.projectname +'" href="accept.html?id='+ element.projectid +'" target="_blank">';
-                html += element.projectname +'</a>';
+                html += element.projectname;
                 html += '</td>';
 
                 html += '<td class="text-center ">';
@@ -39,13 +38,18 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                 html += ' 详情查看';
                 html += '</a>  ';
                 if(element.typename == '参数确定' && element.statusname == '已发证'){
-                    html += '<a class="btn btn-xs btn-danger" href="#“ target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
+                    html += '<a class="btn btn-xs btn-danger" href="'+ _self.options.OprUrls.project.download+element.projectid+'" target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
                     html += ' 报告下载';
                     html += '</a> ';
                     html += '<a class="btn btn-xs btn-info" href="accept.html?id='+ element.projectid +'" target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
                     html += '申请验收';
                     html += '</a> ';
+                }else if(element.typename == '竣工验收' && element.statusname == '已发证'){
+                    html += '<a class="btn btn-xs btn-danger" href="'+ _self.options.OprUrls.project.downloadAccept+element.projectid+'" target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
+                    html += ' 报告下载';
+                    html += '</a> ';
                 }
+
                 html += '</td>';
                 html += '</tr>';
              });

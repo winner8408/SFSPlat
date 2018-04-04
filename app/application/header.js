@@ -15,6 +15,7 @@
         _self._buildTopNavbar();
       }
       _self._buildFooter();
+      _self._buildColorSwitcher();
     },
     //创建头部栏
     _buildTopbar:function(){
@@ -142,6 +143,38 @@
         $('.loginBut').css('display','inline');
         $('.userInfo').css('display','none');
       }
+    },
+    _buildColorSwitcher:function(){
+      var _self = this;
+      var html = '';
+      html += ' <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>';
+      html += '<div class="style-switcher animated fadeInRight">';
+      html += '<div class="style-swticher-header">';
+      html += '<div class="style-switcher-heading">系统设置</div>';
+      html += '<div class="theme-close"><i class="icon-close"></i></div>';
+      html += '</div>';
+      html += ' <div class="style-swticher-body">';
+      html += '<div class="style-switcher-heading">请您选择主题颜色</div>';
+      html += ' <ul class="list-unstyled">';
+      html += ' <li class="theme-red theme-active" data-style="red" data-header="light"></li>';
+      html += '<li class="theme-default" data-style="default" data-header="light"></li>';
+      html += '<li class="theme-blue" data-style="blue" data-header="light"></li>';
+      html += '<li class="theme-orange" data-style="orange" data-header="light"></li>';
+      html += '<li class="theme-light" data-style="light" data-header="light"></li>';
+      html += '<li class="theme-purple last" data-style="purple" data-header="light"></li>';
+      html += ' <li class="theme-aqua" data-style="aqua" data-header="light"></li>';
+      html += '<li class="theme-brown" data-style="brown" data-header="light"></li>';
+      html += '<li class="theme-dark-blue" data-style="dark-blue" data-header="light"></li>';
+      html += '<li class="theme-light-green" data-style="light-green" data-header="light"></li>';
+      html += '<li class="theme-dark-red" data-style="dark-red" data-header="light"></li>';
+      html += ' <li class="theme-teal last" data-style="teal" data-header="light"></li>';
+      html += ' </ul>';
+      html += ' </div>';
+      html += '</div>';
+      $('.styleSwitcher').html(html);
+      App.init();
+      StyleSwitcher.initStyleSwitcher();
+      OwlRecentWorks.initOwlRecentWorksV2();
     },
     _buildFooter:function(){
       var _self = this;
