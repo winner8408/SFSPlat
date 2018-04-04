@@ -26,9 +26,9 @@ define('application/login', ['utils/ajaxUtil', 'utils/common'], function(ajaxUti
                             Authorization:"Basic ZHl0aDpkeXRoU2VjcmV0"
                         },
                         success: function(data, status, xhr) {
-                            if (data.access_token) {
+                            if (data.result) {
                                 sessionStorage.setItem('username', username);
-                                sessionStorage.setItem('token', data.access_token);
+                                sessionStorage.setItem('token', data.content.access_token);
                                 window.location.href = "index.html";
                             } else {
                                 var notify= _self.notifyMsg(data.content);

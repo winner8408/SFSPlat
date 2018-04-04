@@ -17,20 +17,8 @@ define('application/project', ['utils/ajaxUtil', 'utils/common'], function(ajaxU
     Widget.prototype = {
         _init: function() {
             var _self = this;
-            _self._getAuthorInfo();
             _self._submitEvent();
         },
-        _getAuthorInfo: function() {
-            var _self = this;
-            if (sessionStorage.token) {
-              $('.loginBut').css('display','none');
-              $('.userInfo').css('display','inline');
-              $(".username").html('欢迎，' + sessionStorage.username + ' <i class="icon-chevron-down"></i>');
-            } else {
-              $('.loginBut').css('display','inline');
-              $('.userInfo').css('display','none');
-            }
-          },
         _submitEvent:function(){
             var _self = this;
             $('#firstSubmit').on('click',function(){

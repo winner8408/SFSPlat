@@ -9,43 +9,42 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
     Widget.prototype = {
         _init: function() {
             var _self = this;
-            _self._getAuthorInfo();
             _self._queryProject();
-        },
-        _getAuthorInfo: function() {
-            var _self = this;
-            if (sessionStorage.token) {
-              $('.loginBut').css('display','none');
-              $('.userInfo').css('display','inline');
-              $(".username").html('欢迎，' + sessionStorage.username + ' <i class="icon-chevron-down"></i>');
-            } else {
-              $('.loginBut').css('display','inline');
-              $('.userInfo').css('display','none');
-            }
         },
         _buildProjectDom:function(items){
             var _self = this;
             var html = '';
              items.forEach(function(element,index){
                 html += '<tr>';
-                html += '<td style="width:20%;height:37px;overflow:hidden;">';
-                html += '<a id="datarows_123456" name="datarows_123456" title="'+ element.projectname +'" href="accept.html?id='+ element.projectid +'" target="_blank">';
+
+                html += '<td style="height:37px;overflow:hidden;">';
+                html += '<a title="'+ element.projectname +'" href="accept.html?id='+ element.projectid +'" target="_blank">';
                 html += element.projectname +'</a>';
                 html += '</td>';
+
                 html += '<td class="text-center ">';
                 html += element.typename;
                 html += '</td>';
+
                 html += '<td class="text-center ">';
                 html += _self.common.formatDate(element.applydate);
                 html += '</td>';
+
                 html += '<td class="text-center ">';
                 html += element.statusname;
                 html += '</td>';
-                html += '<td class="text-center ">';
+
+                html += '<td class="text-center">';
+                html += '<a class="btn btn-xs btn-success" href="#" target="_blank" style="color: #fff;font-weight:100;margin-bottom:0px !important;">';
+                html += ' 详情查看';
+                html += '</a>  ';
                 if(element.typename == '参数确定' && element.statusname == '已发证'){
-                    html += '<a id="datarows_123456" name="datarows_123456" title="'+ element.projectname +'" href="accept.html?id='+ element.projectid +'" target="_blank">申请验收</a>';
-                }else{
-                    html += '办理中'
+                    html += '<a class="btn btn-xs btn-danger" href="#“ target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
+                    html += ' 报告下载';
+                    html += '</a> ';
+                    html += '<a class="btn btn-xs btn-info" href="accept.html?id='+ element.projectid +'" target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
+                    html += '申请验收';
+                    html += '</a> ';
                 }
                 html += '</td>';
                 html += '</tr>';
@@ -55,7 +54,7 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
         _queryProject:function(){
             var _self = this;
             var query = {
-                q: "1=1",
+                q: "applyman='" + sessionStorage.username + "'",
                 currentPage: 0,
                 pageSize: 10
             };

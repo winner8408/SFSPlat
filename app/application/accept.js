@@ -101,8 +101,8 @@ define('application/accept', ['utils/ajaxUtil', 'utils/common'], function(ajaxUt
                         Authorization:"bearer " + sessionStorage.token
                     },
                     success: function(data, status, xhr) {
-                        if (data.access_token) {
-                           
+                        if (data) {
+                           window.location.href = 'mycontent.html';
                         } else {
                             
                         }

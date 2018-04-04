@@ -13,7 +13,7 @@
           currentPage: 0,
           num: 20, //itemPerPage
       };
-       _self.q = '1=1';
+      _self.q = '1=1';
       _self._queryNotice();
       _self._queryEvent();
     },

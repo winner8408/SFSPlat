@@ -89,74 +89,6 @@
         <div class="header-v5">
           <!-- TopBar -->
           <div class="topbar-v3">
-            <!-- Top SearchArea -->
-            <div class="search-open">
-              <div class="container">
-                <input type="text" class="form-control" placeholder="请输入关键字后回车进行搜索" id="TextSearch" onkeydown="if(event.keyCode==13){openSearch();};">
-                <div class="search-close"><i class="icon-close"></i></div>
-              </div>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-6">
-                  <ul class="right-topbar list-inline">
-                    <li><a href="http://www.cea.gov.cn/" target="_blank" class="white">中国地震局网站</a></li>
-                    <li><a href="http://www.cea-igp.ac.cn/" target="_blank" class="white">中国地震局地球物理研究所网站</a></li>
-                  </ul>
-                </div>
-                <div class="col-sm-6">
-                  <!-- Topbar Navigation -->
-                  <ul class="left-topbar pull-right">
-                    <li>
-                      <a>政务微博</a>
-                      <ul class="currency">
-                        <li><a href="https://m.weibo.cn/u/2652415683" target="_blank"><i class="fa fa-weibo"></i>&nbsp;新浪微博</a></li>
-                        <li><a href="http://xian.qq.com/zt2014/xazwfb/" target="_blank"><i class="fa fa-tencent-weibo"></i>&nbsp;腾讯微博</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="http://www.xa.gov.cnptl/def/def/index_1121_6950.html" target="_blank">手机客户端</a>
-                      <ul class="language">
-                        <li><a href="http://www.gxdzj.gov.cn/dzjappdownload.jspx"><i class="fa fa-android"></i>&nbsp;安卓客户端</a></li>
-                        <li><a href="https://itunes.apple.com/cn/app/zhong-guo-xi-an/id965460929?mt=8"><i class="fa fa-apple"></i>&nbsp;苹果客户端</a></li>
-                      </ul>
-                    </li>
-                    <li class="nohover">
-                      <a>微信</a>
-                      <ul class="currency" style="background: #eee!important;">
-                        <li style="background: #eee!important;"><img src="ptl/def/def/images/6491/weichat.png" style="width: 100%; padding: 0 5px;"/></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a>邮箱</a>
-                      <ul class="currency">
-                        <li><a href="http://mail.xa.gov.cn" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;邮箱地址</a></li>
-                      </ul>
-                    </li>
-                    <li class="loginBut">
-                      <a href="login.html">登入</a>
-                    </li>
-                    <li class="userInfo" style="display:none;">
-                      <a data-toggle="dropdown" class="dropdown-toggle username" href="#">
-                          欢迎， 陈波 <b class="caret"></b>
-                      </a>
-                      <ul style="margin-top:-10px;" role="menu" class="dropdown-setting dropdown-menu">
-                          <li>
-                              <a href="mycontent.html">
-                                  <span class="entypo-user"></span> &#160;&#160;个人资料
-                              </a>
-                          </li>
-                          <li>
-                              <a href="login.html">
-                                  <span class="entypo-logout"></span> &#160;&#160; 退出
-                              </a>
-                          </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
           <!-- NavBar -->
           <div class="container">
@@ -1468,7 +1400,8 @@
 <script type="text/javascript" src="app/config/config.js"></script>
 
 <script type="text/javascript">
-  require(['application/project'], function(project) {
+  require(['application/header','application/project'], function(header,project) {
+      var header = new header(configOptions);
       var project = new project(configOptions);
   });
 </script>
