@@ -7,11 +7,6 @@ var baseOprUrl = "http://47.93.32.53/kzsf-platform";
 var configOptions = {
     "authorInfoKey": "authorInfo",
     "proxyUrl": "app/proxy/proxy.jsp",
-    "isLogin": true,
-    "LoginUrls": {
-        "url": "http://124.17.4.31:8080/dbas2region/authentication/localbureau/login"
-    },
-    "thumbnailBaseUrl": baseOprUrl + "/",
     "OprUrls": {
         "news": {
             "queryUrl": baseOprUrl + "/news/search",
@@ -27,17 +22,22 @@ var configOptions = {
         "common": {
             "queryUrl": baseOprUrl + "/common/search"
         },
+        "user": {
+            "queryUrl": baseOprUrl + "/user/self"
+        },
         "file": {
             "queryUrl": baseOprUrl + "/film/item/thumbnail/news/",
         },
         "project": {
             "queryUrl": baseOprUrl + "/project/search",
+            "queryItem": baseOprUrl + "/project/query/",
             "createUrl": baseOprUrl + "/project/create",
             "download":  baseOprUrl + "/template/pdf/",
             "downloadAccept":  baseOprUrl + "/template/pdf/acceptance/",
         },
         "acceptance": {
             "queryUrl": baseOprUrl + "/acceptance/search",
+            "queryItem": baseOprUrl + "/acceptance/query/",
             "createUrl": baseOprUrl + "/acceptance/create",
         },
         "security": {

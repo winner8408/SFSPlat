@@ -51,108 +51,90 @@
     <link rel="stylesheet" href="libs/unify/assets/css/custom.css">	
     <link rel="stylesheet" href="css/native.css"> 
     <style>
-         .blog-twitter .active {
-            color: #e74c3c;
-            text-decoration: underline;
-         }
-         .blog-twitter .active .blog-twitter-inner{
-            border-color: #e74c3c;
-            border-top-color: #e74c3c;
-         }
-         .blog-twitter .blog-twitter-inner:hover:after {
-           border-top-color: #e74c3c;
-         }
-    </style>
-    <script type="text/javascript" src="libs/unify/assets/plugins/jquery-1.10.2.min.js"></script>
-</head>
-<body >
+      #con_list ul{padding:20px 10px;}
+      #con_list ul>li{list-style:none;}
+    </style>						
+	</head>
+<body>
 
-  <div style="width:100%; margin-left:auto;margin-right:auto;overflow:hidden; border:none;">
-      <div class="wrapper">
-        <div class="header-v5">
-          <div class="topbar-v3" >
-          </div>
-          <div class="navbar navbar-default mega-menu topNavbar" role="navigation" style="z-index: 5;">
+    <div style="width:100%; margin-left:auto;margin-right:auto;overflow:hidden; border:none;">
+        <div class="wrapper">
+          <div class="header-v5">
+            <div class="topbar-v3" >
+            </div>
+            <div class="navbar navbar-default mega-menu topNavbar" role="navigation" style="z-index: 5;">
+            </div>
           </div>
         </div>
-      </div>
-  </div>
+    </div>
+  
+    <div class="styleSwitcher">
+    </div>
 
-  <div class="styleSwitcher">
-  </div>
-
-    <div class="breadcrumbs padding-0 margin-bottom-20" style="background-image: none; background-color: #fcfcfc; ">
+    <div class="breadcrumbs padding-0" style="background-image: none; background-color: #fcfcfc; ">
       <div class="breadcrumbs padding-0" style="background-image: none; background-color: #fcfcfc;">
         <div class="container" style="padding: 0 15px;">
           <ul class="breadcrumb padding-0">
             <li>
-              <a href="index.html">首页</a>
+              <a href="index.html">
+                首页
+              </a>
             </li>
             <li class="active">
-              个人中心
+              发布日历
             </li>
           </ul>
         </div>
       </div>
     </div>
-    
-    <div class="container" style="margin-top: 15px;">
-      <div class="row">
-          <div class="col-md-3" style=" ">
-            <div style=" ">
-              <div class="blog-twitter">
-                  <div class="headline" style="">
-                    <h3 class="color-green">
-                      个人中心
-                    </h3>
-                  </div>
-                  <a href="#" class="mydetail active">
-                    <div class="blog-twitter-inner">
-                      <p class="no-margin color-green">
-                        <i class="icon-book-open color-green">
-                        </i>
-                        &nbsp;&nbsp;我的资料
-                      </p>
-                    </div>
-                  </a>
-                  <a href="#" class="myapply">
-                    <div class="blog-twitter-inner">
-                      <p class="no-margin color-green">
-                        <i class="icon-list color-green">
-                        </i>
-                        &nbsp;&nbsp;我的申请
-                      </p>
-                    </div>
-                  </a>
-              </div>
-              </div>
+
+    <div class="container" id="con_list" >
+      <div class="row margin-top-20">
+        <div class="col-md-3" style="margin-bottom: 20px;  ">
+          <div class="well well-sm" style="box-shadow: none; margin:0; padding: 7px 10px 7px;border-bottom:0;">
+            <span class="color-green">
+              <i class="fa fa-exclamation-triangle">
+              </i>
+              &nbsp;点击日期查看对应日期发布的信息
+            </span>
           </div>
-          <div class="col-md-9" id="rightDiv" style=" ">
-            <div class="margin-bottom-20" id="xxgkzdgz" style=" ">
-              <div class="headline" style="">
-                <h3 class="color-green mytype">我的资料</h3>
-              </div>
-              <div id="divTopicInfo" class="divTopicInfo-styleUpdate" style="margin: 20px; background: #FEFFFA;">
-              </div>
-              <div id="divApplyInfo" class="dataTables_wrapper" role="grid" style="display:none;">
-                <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable" aria-describedby="sample-table-2_info">
-                  <tbody role="alert" aria-live="polite" aria-relevant="all" id="projectList">
-                  </tbody>
-                </table>
-                <div id="cipager0" name="cipager0" style="clear:both;text-align: center;" class="divpager">
-                    <div id="pagination" class="pagination-jq"></div>
-                  </div>
-              </div>
+          <div class="row">
+            <div class="col-md-12" id="calendar">
             </div>
+          </div>
+        </div>
+        <div class="col-md-9" style="margin-bottom: 20px;  ">
+          <div class="panel panel-u">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                2018-04-01
+              </h3>
+            </div>
+            <div class="panel-body">
+              <form action="#" method="post" id="form1">
+                <ul class="itemlist"> 
+                </ul>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
+    <div id="footer-default" class="footer-default">
+    </div>
+
+
+
+
+<!-- JS Page Level -->
+
+<div id="topcontrol" title="Scroll Back to Top" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;"></div>
 </body>
 </html>
 
-
 <!-- JS Global Compulsory -->
+<script type="text/javascript" src="libs/unify/assets/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery/jquery.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jquery/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="libs/unify/assets/plugins/jQuery-jcMarquee.js"></script>
@@ -176,10 +158,39 @@
 <script src="libs/require.js" type="text/javascript"></script>
 <script type="text/javascript" src="app/config/requireConfig.js"></script>
 <script type="text/javascript" src="app/config/config.js"></script>
+<script type="text/javascript" src="libs/unify/assets/plugins/bootstrap-calendar/bootstrap.calendar.js"></script>
+
 
 <script type="text/javascript">
-  require(['application/header','application/mycontent'], function(header,mycontent) {
+  require(['application/header','application/newslist'], function(header,newslist) {
       var header = new header(configOptions);
-      var mycontent = new mycontent(configOptions);
+      var newslist = new newslist(configOptions);
   });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+      var evnts = function () {
+                return {
+                    "event":
+                        [
+                          { "date": "01/01/2012", "title": "1" },{ "date": "02/02/2012", "title": "2" },{ "date": "03/03/2012", "title": "34" },{ "date": "04/04/2012", "title": "123" }, 
+                { "date": "05/05/2012", "title": "223" },{ "date": "06/06/2012", "title": "4" },{ "date": "07/07/2012", "title": "5" },{ "date": "08/08/2012", "title": "14" },
+                { "date": "09/09/2012", "title": "10" },{ "date": "10/10/2012", "title": "10" },{ "date": "11/11/2012", "title": "10" },{ "date": "12/12/2012", "title": "10" }
+                        ]
+                }
+            };
+      $('#calendar').Calendar({ 'events': evnts, 'weekStart': 1 }).on('changeDay', function (event) {
+      today = new Date();var tyy=today.getFullYear();var tmm=today.getMonth()-(-1);var tdd=today.getDate();
+      var dd=event.day.valueOf();var mm=event.month.valueOf();var yy=event.year.valueOf();if(yy<=tyy){
+        if(mm<=tmm){
+          if(dd<=tdd){
+            var m1=Math.floor(mm/10);var m2=mm%10;var d1=Math.floor(dd/10);var d2=dd%10;var date=yy+"-"+m1+m2+"-"+d1+d2;
+            window.location.href="newslist.html?d="+date+"";		
+          }else{alert('日期超出查询范围');}
+        }else{alert('月份超出查询范围');}
+      }else{alert('年份超出查询范围');}
+    });
+    });
 </script>

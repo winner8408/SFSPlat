@@ -16,6 +16,20 @@
       }
       _self._buildFooter();
       _self._buildColorSwitcher();
+      _self._constructCommonEvent();
+    },
+    //创建通用的事件
+    _constructCommonEvent:function(){
+      var _self = this;
+      //页面滚动到顶部
+      _self._pageScroll();
+    },
+    //页面滚动到顶部
+    _pageScroll:function(){
+      window.scrollBy(0,-100);
+      scrolldelay = setTimeout('pageScroll()',100);
+      var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+      if(sTop==0) clearTimeout(scrolldelay);
     },
     //创建头部栏
     _buildTopbar:function(){

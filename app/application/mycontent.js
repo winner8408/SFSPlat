@@ -9,8 +9,183 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
     Widget.prototype = {
         _init: function() {
             var _self = this;
-            _self._queryProject();
+            var type = _self.common.getQueryStringByKey('type');
+            _self.searchCache = {
+                currentPage: 0,
+                num: 20, //itemPerPage
+            };
+            if(type == 'apply'){
+                $('.mytype').html('我的申请');
+                _self._queryProject();
+            }else {
+                _self._querSelfInfo();
+            }
+            _self._constructEvent();
         },
+        _constructEvent:function(){
+            var _self  = this ;
+            $('.mydetail').on('click',function(){
+                $(this).addClass('active');
+                $('.mytype').html('我的资料');
+                $('.myapply').removeClass('active');
+               _self._querSelfInfo();
+            });
+            $('.myapply').on('click',function(){
+                $('.mytype').html('我的申请');
+                $(this).addClass('active');
+                $('.mydetail').removeClass('active');
+                _self._queryProject();
+            })
+        },
+        _querSelfInfo:function(){
+            var _self = this;
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: _self.options.OprUrls.user.queryUrl,
+                    dataType: "json",
+                    headers:{
+                        Authorization:"bearer "+sessionStorage.token
+                    },
+                    success: function(data, status, xhr) {
+                        if (data.result) {
+                            _self._buildSelfDom(data.data);
+                        } else {
+                        }
+                    },
+                    error: function(xhr, error, exception) {
+
+                    },
+                });
+            } catch (e) {
+                }
+
+        },
+        _buildSelfDom:function(info){
+            var _self = this ;
+            var html = '';
+            html += '<table border="0" style="border-top: 1px solid #dfdfdf; border-bottom: 1px solid #dfdfdf;width:100%;">';
+            html += '<tbody>';
+            html += '<tr>';
+            html += '<td style="text-align: center; width: 15%; height: 35px; border-left: 1px solid #dfdfdf; background-color: #f5f5f5;">';
+            html += '<i class="fa fa-user"></i>&nbsp;登录名';
+            html += '</td>';
+            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;">' + info.name;
+            html += '</td>';
+            html += '<td style="text-align: center; width: 15%; height: 35px; background-color: #f5f5f5;">';
+            html += '<i class="fa fa-envelope-o"></i>&nbsp;邮箱地址';
+            html += '</td>';
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;">'+ info.email;
+            html += '</td>';
+                      
+            html += '</tr>';
+            
+            html += '<tr>';
+            html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;border-left: 1px solid #dfdfdf;">';
+            html += '<i class="fa fa-user-secret"></i>&nbsp;全名';
+            html += '</td>';
+            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+ info.fullname;
+            html += '</td>';
+            html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
+            html += '<i class="fa fa-fax"></i>&nbsp;联系电话';
+            html += '</td>';
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;">' + info.mobile;
+            html += '</td> ';
+            html += '</tr>';
+
+            html += '<tr>';
+            html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;border-left: 1px solid #dfdfdf;">';
+            html += '<i class="fa fa-venus-mars"></i>&nbsp;性别';
+            html += '</td>';
+            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+info.sex;
+            html += '</td>';
+            html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
+            html += '<i class="fa fa-university"></i>&nbsp;公司名称';
+            html += '</td>';
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;">'+info.company;
+            html += '</td>';
+            html += '</tr>';
+
+            html += '<tr>';
+            html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;border-left: 1px solid #dfdfdf;">';
+            html += '<i class="fa fa-birthday-cake"></i>&nbsp;生日';
+            html += ' </td>';
+            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+_self.common.formatDate(info.birthDate);
+            html += '</td>';
+            html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
+            html += '<i class="fa fa-clock-o"></i>&nbsp;最近登录';
+            html += '</td>';
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;">'+_self.common.formatDate(info.lastTime);
+            html += '</td>';
+            html += '</tr>';
+    
+            html += '</tbody>';
+            html += '</table>';
+            $('#divTopicInfo').html(html);
+            $('#divTopicInfo').css('display','block');
+            $('#divApplyInfo').css('display','none');
+        },
+        _renderPagination: function(id, pageIndex, total, itemPerPage, callback) {
+            //分页控件初始化
+            $(id).pagination(total, {
+                'items_per_page': itemPerPage,
+                'current_page': pageIndex, //默认0，第一页
+                'num_display_entries': 5,
+                'num_edge_entries': 1,
+                'prev_text': "上一页",
+                'next_text': "下一页",
+                'callback': callback
+            });
+         },
+         _queryProject:function(){
+            var _self = this;
+            _self.ajaxUtil.search(_self.options.OprUrls.common.queryUrl, "applyman='" + sessionStorage.username + "'",_self.searchCache.currentPage,_self.searchCache.num, function(respons) {
+              if (respons.data) {
+                var projects = respons.data.list;
+                if (respons.data.total !== 0) {
+                    _self._buildProjectDom(projects);
+                }else{
+                  _self._buildNoneDom();
+                }
+                _self._renderPagination("#pagination", _self.searchCache.currentPage == 0 ?  _self.searchCache.currentPage :  _self.searchCache.currentPage-1,respons.data.total, _self.searchCache.num, function(pageIndex) {
+                    _self.searchCache.currentPage = pageIndex + 1;
+                    _self._queryProject();
+                });
+              }
+            });
+          },
+        // _queryProject:function(){
+        //     var _self = this;
+        //     var query = {
+        //         q: "applyman='" + sessionStorage.username + "'",
+        //         currentPage: 0,
+        //         pageSize: 10
+        //     };
+        //     try {
+        //         $.ajax({
+        //             type: "POST",
+        //             url: _self.options.OprUrls.common.queryUrl,
+        //             dataType: "json",
+        //             data: JSON.stringify(query),     
+        //             contentType: "application/json",
+        //             timeout: 30000,
+        //             success: function(respons, status, xhr) {
+        //                 if (respons.data) {
+        //                     var projects = respons.data.list;
+        //                     if (respons.data.total !== 0) {
+        //                         _self._buildProjectDom(projects);
+        //                     }else{
+        //                       _self._buildNoneDom();
+        //                     }
+        //                 }
+        //             },
+        //             error: function(xhr, error, exception) {
+
+        //             },
+        //         });
+        //     } catch (e) {
+        //     }
+        // },
         _buildProjectDom:function(items){
             var _self = this;
             var html = '';
@@ -34,7 +209,7 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                 html += '</td>';
 
                 html += '<td class="text-center">';
-                html += '<a class="btn btn-xs btn-success" href="#" target="_blank" style="color: #fff;font-weight:100;margin-bottom:0px !important;">';
+                html += '<a class="btn btn-xs btn-success" href="detail.html?type='+ element.typename + '&id=' + element.projectid +'" target="_blank" style="color: #fff;font-weight:100;margin-bottom:0px !important;">';
                 html += ' 详情查看';
                 html += '</a>  ';
                 if(element.typename == '参数确定' && element.statusname == '已发证'){
@@ -54,39 +229,10 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                 html += '</tr>';
              });
              $('#projectList').html(html);
+             $('#divTopicInfo').css('display','none');
+             $('#divApplyInfo').css('display','block');
         },
-        _queryProject:function(){
-            var _self = this;
-            var query = {
-                q: "applyman='" + sessionStorage.username + "'",
-                currentPage: 0,
-                pageSize: 10
-            };
-            try {
-                $.ajax({
-                    type: "POST",
-                    url: _self.options.OprUrls.common.queryUrl,
-                    dataType: "json",
-                    data: JSON.stringify(query),     
-                    contentType: "application/json",
-                    timeout: 30000,
-                    success: function(respons, status, xhr) {
-                        if (respons.data) {
-                            var projects = respons.data.list;
-                            if (respons.data.total !== 0) {
-                                _self._buildProjectDom(projects);
-                            }else{
-                              _self._buildNoneDom();
-                            }
-                        }
-                    },
-                    error: function(xhr, error, exception) {
 
-                    },
-                });
-            } catch (e) {
-            }
-        },
     };
 
     return Widget;
