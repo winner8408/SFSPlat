@@ -4,6 +4,8 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
         _self.options = options;
         _self.ajaxUtil = new ajaxUtil(_self.options.proxyUrl);
         _self.common = new common();
+        _self.userId ='';
+        _self.username = '';
         _self._init();
     };
     Widget.prototype = {
@@ -35,7 +37,47 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                 $(this).addClass('active');
                 $('.mydetail').removeClass('active');
                 _self._queryProject();
-            })
+            });
+            $('#submitChange').on('click',function(){
+                var user = {
+                    id:_self.userId,
+                    name: _self.username,
+                    email: $('#recipient-email').val(),
+                    fullname:$('#recipient-fullname').val(),
+                    mobile:$('#recipient-mobile').val(),
+                    sex: $('#recipient-sex').val(),
+                    company: $('#recipient-company').val()
+                };
+                try {
+                    $.ajax({
+                        type: "POST",
+                        url: _self._formartUrl(_self.options.OprUrls.user.updateUrl),
+                        data : JSON.stringify(user),
+                        contentType: "application/json",
+                        dataType: "json",
+                        headers:{
+                            Authorization:"bearer "+sessionStorage.token
+                        },
+                        success: function(data, status, xhr) {
+                            if (data.result) {
+                                _self.userId = data.data.id;
+                                _self._buildSelfDom(data.data);
+                                _self._buildSelfModal(data.data);
+                            } else {
+                            }
+                        },
+                        error: function(xhr, error, exception) {
+    
+                        },
+                    });
+                } catch (e) {
+                    }
+
+            });
+        },
+        _formartUrl: function(url) {
+            var _self = this;
+            return url.indexOf(window.location.host) > -1 ? url : _self.options.proxyUrl + '?' + url;
         },
         _querSelfInfo:function(){
             var _self = this;
@@ -49,7 +91,10 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                     },
                     success: function(data, status, xhr) {
                         if (data.result) {
+                            _self.userId = data.data.id;
+                            _self.username = data.data.name;
                             _self._buildSelfDom(data.data);
+                            _self._buildSelfModal(data.data);
                         } else {
                         }
                     },
@@ -75,7 +120,7 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
             html += '<td style="text-align: center; width: 15%; height: 35px; background-color: #f5f5f5;">';
             html += '<i class="fa fa-envelope-o"></i>&nbsp;邮箱地址';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;">'+ info.email;
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-right: 1px solid #dfdfdf;">'+ info.email;
             html += '</td>';
                       
             html += '</tr>';
@@ -89,7 +134,7 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
             html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
             html += '<i class="fa fa-fax"></i>&nbsp;联系电话';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;">' + info.mobile;
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf;">' + info.mobile;
             html += '</td> ';
             html += '</tr>';
 
@@ -102,28 +147,41 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
             html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
             html += '<i class="fa fa-university"></i>&nbsp;公司名称';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;">'+info.company;
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;border-right: 1px solid #dfdfdf;">'+info.company;
             html += '</td>';
             html += '</tr>';
 
-            html += '<tr>';
-            html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;border-left: 1px solid #dfdfdf;">';
-            html += '<i class="fa fa-birthday-cake"></i>&nbsp;生日';
-            html += ' </td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+_self.common.formatDate(info.birthDate);
-            html += '</td>';
-            html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
-            html += '<i class="fa fa-clock-o"></i>&nbsp;最近登录';
-            html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;">'+_self.common.formatDate(info.lastTime);
-            html += '</td>';
-            html += '</tr>';
+            // html += '<tr>';
+            // html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;border-left: 1px solid #dfdfdf;">';
+            // html += '<i class="fa fa-birthday-cake"></i>&nbsp;生日';
+            // html += ' </td>';
+            // html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+_self.common.formatDate(info.birthDate);
+            // html += '</td>';
+            // html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
+            // html += '<i class="fa fa-clock-o"></i>&nbsp;最近登录';
+            // html += '</td>';
+            // html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;border-right: 1px solid #dfdfdf;">'+_self.common.formatDate(info.lastTime);
+            // html += '</td>';
+            // html += '</tr>';
     
             html += '</tbody>';
             html += '</table>';
+
+            html += '<div class="col-md-12 text-center" style="margin-top: 10px;">';
+    
+            html += '<button type="button" class="btn-u btn-u-red" style="color: #fff;  margin:0 15px;padding: 0 12px;" data-toggle="modal" data-target="#myModal">更新</button>';
+			// html += '<input value="更新" type="submit" name="buttonSearch" id="buttonSearch" class="btn-u btn-u-red" onclick="return getCase();" style="color: #fff;  margin:0 15px;padding: 0 12px;">';
+			html += '</div>';
             $('#divTopicInfo').html(html);
             $('#divTopicInfo').css('display','block');
             $('#divApplyInfo').css('display','none');
+        },
+        _buildSelfModal:function(info){
+           $('#recipient-email').val(info.email);
+           $('#recipient-fullname').val(info.fullname);
+           $('#recipient-mobile').val(info.mobile);
+           $('#recipient-sex').val(info.sex);
+           $('#recipient-company').val(info.company);
         },
         _renderPagination: function(id, pageIndex, total, itemPerPage, callback) {
             //分页控件初始化

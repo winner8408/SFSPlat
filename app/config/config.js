@@ -2,8 +2,8 @@
  * @author DYTH 2015
  */
 
-var baseOprUrl = "http://47.93.32.53/kzsf-platform";
-// var baseOprUrl = "http://192.168.1.157:8080/dyth";
+// var baseOprUrl = "http://47.93.32.53/kzsf-platform";
+var baseOprUrl = "http://192.168.1.157:8080/dyth";
 var configOptions = {
     "authorInfoKey": "authorInfo",
     "proxyUrl": "app/proxy/proxy.jsp",
@@ -23,7 +23,8 @@ var configOptions = {
             "queryUrl": baseOprUrl + "/common/search"
         },
         "user": {
-            "queryUrl": baseOprUrl + "/user/self"
+            "queryUrl": baseOprUrl + "/user/self",
+            "updateUrl": baseOprUrl + "/user/update"
         },
         "file": {
             "queryUrl": baseOprUrl + "/film/item/thumbnail/news/",

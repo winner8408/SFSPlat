@@ -106,7 +106,7 @@
       var html = '';
       html += '<div class="container">';
       html += '<div class="navbar-header">';
-      html += '<a class="navbar-brand no-padding-top no-padding-bottom" href="http://www.xa.gov.cn/ptl/def/def/index_1121_7564.html#">';
+      html += '<a class="navbar-brand no-padding-top no-padding-bottom" href="index.html">';
       html += '<img id="logo-header" src="libs/unify/assets/img/themes/logo1-red.png" alt="Logo" style="height: 68px; display: inline-block;">';
       html += '</a>';
       html += '</div>';

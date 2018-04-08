@@ -20,6 +20,8 @@
       _self._queryCommon();
       // 办件搜素
       _self._seachCommon();
+      //政策法规
+      _self._queryNewsOfPolicy();
     },
     //新闻轮播图
     _queryUpNews:function(){
@@ -133,33 +135,62 @@
       _self.ajaxUtil.search(_self.options.OprUrls.news.queryUrl, "summary='防震减灾'",1,9, function(respons) {
         if (respons.data) {
             var news = respons.data.list;
-            _self._buildNewsDom(news);
+            _self._buildNewsDom(news,'.news');
         }
       });
     },
     // 震防要闻 dom
-    _buildNewsDom:function(news){
+    _buildNewsDom:function(news,domClass){
       var html = '';
       html += '<ul style="list-style: none; line-height: 2; margin:0 10px;" class="padding-0">';
-      news.forEach(element => {
-        html += '<li>';
-        html += '<div class="col-xs-12 col-md-12 padding-0" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">';
-        html += '<span class="color-green" style="font-weight: 700;">';
-        html += '&bull;';
-        html += '</span>';
-        html += '<span class="font-color6">';
-        html += '<a href="pageContent.html?id='+ element.id +'&type=news" target="blank"';
-        html += 'title="'+ element.title +'"> ';
-        html += element.title;
-        html += ' </a>';
-        html += '</span>';
-        html += '</div>';
-        html += '</li>';
+      news.forEach(function(element,index){
+        if(index < 9){
+          html += '<li>';
+          html += '<div class="col-xs-12 col-md-12 padding-0" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">';
+          html += '<span class="color-green" style="font-weight: 700;">';
+          html += '&bull;';
+          html += '</span>';
+          html += '<span class="font-color6">';
+          html += '<a href="pageContent.html?id='+ element.id +'&type=news" target="blank"';
+          html += 'title="'+ element.title +'"> ';
+          html += element.title;
+          html += ' </a>';
+          html += '</span>';
+          html += '</div>';
+          html += '</li>';
+        }
       });
       html += '</ul>';
-      $('.news').html(html);
+      $(domClass).html(html);
     },
-
+    // 震防要闻
+    _queryNewsOfPolicy:function(){
+      var _self = this;
+      _self.ajaxUtil.search(_self.options.OprUrls.news.queryUrl, "code='500004'",1,100, function(respons) {
+        if (respons.data) {
+            var news = respons.data.list;
+            var policy1 = [];
+            var policy2 = [];
+            var policy3 = [];
+            var policy4 = [];
+            news.forEach(element => {
+              if(element.summary == '法律'){
+                policy1.push(element);
+              }else if(element.summary == '行政法规'){
+                policy2.push(element);
+              }else if(element.summary == '部门规章'){
+                policy3.push(element);
+              }else if(element.summary == '地方性法规'){
+                policy4.push(element);
+              }
+            });
+            _self._buildNewsDom(policy1,'.policy1');
+            _self._buildNewsDom(policy2,'.policy2');
+            _self._buildNewsDom(policy3,'.policy3');
+            _self._buildNewsDom(policy4,'.policy4');
+        }
+      });
+    },
     _queryCommon:function(){
       var _self = this;
       _self.ajaxUtil.search(_self.options.OprUrls.common.queryUrl, '1=1',1,9, function(respons) {

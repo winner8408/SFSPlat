@@ -16,6 +16,8 @@
       _self.q = '1=1';
       _self._queryNotice();
       _self._queryEvent();
+      //查询querystring，并展开对应的列表
+      _self._queryString();
     },
     _queryEvent:function(){
       var _self = this;
@@ -32,6 +34,20 @@
           _self._queryNotice();
       });
       
+    },
+    //查询querystring，并展开对应的列表
+    _queryString:function(){
+      var _self = this;
+      var type = _self.common.getQueryStringByKey('type');
+      if(type == "a1"){
+        $('#a1').click();
+      }else if(type == "a2"){
+        $('#a2').click();
+      }else if(type == "a3"){
+        $('#a3').click();
+      }else if(type == "a4"){
+        $('#a4').click();
+      }
     },
     _queryNews:function(){
       var _self = this;
