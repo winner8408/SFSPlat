@@ -48,6 +48,11 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                     sex: $('#recipient-sex').val(),
                     company: $('#recipient-company').val()
                 };
+                // _self.ajaxUtil._ajaxPost(_self.options.OprUrls.user.updateUrl, user, function(respons) {
+                //     if (respons.data) {
+
+                //     }
+                // });
                 try {
                     $.ajax({
                         type: "POST",
@@ -75,6 +80,7 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
 
             });
         },
+        
         _formartUrl: function(url) {
             var _self = this;
             return url.indexOf(window.location.host) > -1 ? url : _self.options.proxyUrl + '?' + url;
