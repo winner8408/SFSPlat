@@ -33,6 +33,9 @@ define('application/project', ['utils/ajaxUtil', 'utils/common'], function(ajaxU
                 $('.form03').css('display','none');
             });
             $('#secondSubmit').on('click',function(){
+                if($('#projectMoney').val()== ''){
+                    $('#projectMoney').val(0);
+                }
                 _self.form2Data = $('#form_02').serialize();
                 _self.json2Data = $("#form_02").serializeArray();
                 $('.step-header2').removeClass('active');
@@ -44,7 +47,18 @@ define('application/project', ['utils/ajaxUtil', 'utils/common'], function(ajaxU
                 $('.form03').css('display','block');
             });
             $('#thirdSubmit').on('click',function(){
-               
+                if($('#grossArea').val()== ''){
+                    $('#grossArea').val(0);
+                }
+                if($('#grossBuildingArea').val()== ''){
+                    $('#grossBuildingArea').val(0);
+                }
+                if($('#buildingHeight').val()== ''){
+                    $('#buildingHeight').val(0);
+                }
+                if($('#buildingFloor').val()== ''){
+                    $('#buildingFloor').val(0);
+                }
                 _self.form3Data = $('#form_03').serialize();
                 _self.formData = _self.form2Data + '&' + _self.form2Data + '&' + _self.form3Data;
 

@@ -39,7 +39,6 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                 _self._queryProject();
             });
             $('#submitChange').on('click',function(){
-                alert('nihao');
                 var user = {
                     id:_self.userId,
                     name: _self.username,
@@ -62,9 +61,8 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                         },
                         success: function(data, status, xhr) {
                             if (data.result) {
-                                _self.userId = data.data.id;
-                                _self._buildSelfDom(data.data);
-                                _self._buildSelfModal(data.data);
+                                $('#myModal').modal('hide')
+                                _self._querSelfInfo();
                             } else {
                             }
                         },
