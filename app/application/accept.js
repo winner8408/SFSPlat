@@ -59,7 +59,7 @@ define('application/accept', ['utils/ajaxUtil', 'utils/common'], function(ajaxUt
                 $('.form04').css('display','block');
             });
             $('#fourSubmit').on('click',function(){
-                _self.json4Data = $("#form_03").serializeArray();
+                _self.json4Data = $("#form_04").serializeArray();
                 $('.step-header4').removeClass('active');
                 $('.step-header4').removeClass('bgcolor-green');
                 $('.step-header5').addClass('active');

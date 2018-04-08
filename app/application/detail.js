@@ -46,17 +46,6 @@
         });
     } catch (e) {
     }
-      // _self.ajaxUtil.search(url, '1=1',1,9, function(respons) {
-      //   if (respons.data) {
-      //     var item = respons.data;
-      //     if(type == "project"){
-      //       _self._buildProjectDom(item,type);
-      //     }else {
-      //       _self._buildAccptancetDom(item,type);
-      //     }
-            
-      //   }
-      // });
     },
     _buildProjectDom:function(item){
       var _self = this;
@@ -171,12 +160,12 @@
       html +='主体建筑最大高度（m）';
       html +='</td>';
       html +='<td style="padding: 0 5px;" colspan="2">';
-      html +=item.buildingFloor;
+      html +=item.buildingHeight;
       html +='<td style="padding: 0 5px;">';
       html +='主题建筑最高层数';
       html +='</td>';
       html +='<td style="padding: 0 5px;">';
-      html +=item.buildingHeight;
+      html +=item.buildingFloor;
       html +='</td>';
       html +=' </tr>';
     

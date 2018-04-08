@@ -15,7 +15,7 @@
         _self._buildTopNavbar();
       }
       _self._buildFooter();
-      _self._buildColorSwitcher();
+      // _self._buildColorSwitcher();
       _self._constructCommonEvent();
     },
     //创建通用的事件
@@ -53,6 +53,7 @@
        html += '<li><a href="http://xian.qq.com/zt2014/xazwfb/" target="_blank"><i class="fa fa-tencent-weibo"></i>&nbsp;腾讯微博</a></li>';
        html += '</ul>';
        html += '</li>';
+
        html += '<li>';
        html += '<a href="http://www.xa.gov.cnptl/def/def/index_1121_6950.html" target="_blank">手机客户端</a>';
        html += '<ul class="language">';
@@ -80,20 +81,13 @@
        html += '</li>';
 
        html += '<li class="userInfo" style="display:none;">';
-       html += '<a data-toggle="dropdown" class="dropdown-toggle username" href="#">';
-       html += ' 欢迎， 陈波 <b class="caret"></b>';
-       html += '</a>';
-       html += '<ul style="margin-top:-10px;" role="menu" class="dropdown-setting dropdown-menu">';
-       html += '<li>';
-       html += '<a href="mycontent.html">';
-       html += '<span class="entypo-user"></span> &#160;&#160;个人资料';
-       html += '</a>';
+       html += '<a href="#" target="_blank" class="username">欢迎 ，陈波</a>';
+       html += '<ul class="language">';
+       html += '<li><a href="mycontent.html"><i class="fa fa-user"></i>&nbsp;个人资料</a></li>';
+       html += '<li><a href="login.html"><i class="fa fa-sign-out"></i>&nbsp;退出</a></li>';
+       html += '</ul>';
        html += '</li>';
-       html += '<li>';
-       html += '<a href="login.html">';
-       html += '<span class="entypo-logout"></span> &#160;&#160; 退出';
-       html += '</a>';
-       html += '</li>';
+
        html += '</ul>';
        html += '</li>';
        html += '</ul>';

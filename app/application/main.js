@@ -22,6 +22,8 @@
       _self._seachCommon();
       //政策法规
       _self._queryNewsOfPolicy();
+      //安居工程
+      _self._queryNewsOfProject();
     },
     //新闻轮播图
     _queryUpNews:function(){
@@ -81,6 +83,7 @@
           var notice = respons.data.list;
           _self._buildNoticeDom(notice);
           _self._buildNoticeBar(notice);
+          _self._buildNoticeTips(notice);
         }
       });
     },
@@ -118,7 +121,7 @@
      notice.forEach(function(element,index){
        if(index < 3){
          html += '<span style="margin:0px;padding:0px;height:14px;padding-right:30px;overflow:hidden;max-width:500px;">';
-         html += '<a class="color-green" title="'+ element.title +'" href="#" target="_blank" >';
+         html += '<a class="color-green" title="'+ element.title +'" href="pageContent.html?id='+ element.id +'&type=notice"  target="_blank" >';
          html += '<i class="fa fa-volume-up color-green">';
          html += '</i>';
          html += '&nbsp;&nbsp;';
@@ -129,40 +132,75 @@
      html += '</marquee>';
      $('.noticeBar').html(html);
   },
-    // 震防要闻
-    _queryNews:function(){
-      var _self = this;
-      _self.ajaxUtil.search(_self.options.OprUrls.news.queryUrl, "summary='防震减灾'",1,9, function(respons) {
-        if (respons.data) {
-            var news = respons.data.list;
-            _self._buildNewsDom(news,'.news');
-        }
-      });
-    },
-    // 震防要闻 dom
-    _buildNewsDom:function(news,domClass){
-      var html = '';
-      html += '<ul style="list-style: none; line-height: 2; margin:0 10px;" class="padding-0">';
-      news.forEach(function(element,index){
-        if(index < 9){
-          html += '<li>';
-          html += '<div class="col-xs-12 col-md-12 padding-0" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">';
-          html += '<span class="color-green" style="font-weight: 700;">';
-          html += '&bull;';
-          html += '</span>';
-          html += '<span class="font-color6">';
-          html += '<a href="pageContent.html?id='+ element.id +'&type=news" target="blank"';
-          html += 'title="'+ element.title +'"> ';
-          html += element.title;
-          html += ' </a>';
-          html += '</span>';
-          html += '</div>';
-          html += '</li>';
-        }
-      });
-      html += '</ul>';
-      $(domClass).html(html);
-    },
+  //通知的栏目
+  _buildNoticeTips:function(notice){
+    var htmltop = '';
+    var htmllist = '';
+    notice.forEach(function(element,index){
+      if(index == 0){
+        htmltop +='<h4 style="font-weight:700;">';
+        htmltop +='<a title="'+element.title+'" class="color-green" style="text-decoration:none;" href="ptl/def/def/index_1121_6774.jsp?trid=2514479" target="_blank" >';
+        htmltop += element.title+'</a>';
+        htmltop +='</h4>';
+        htmltop +='<p style="text-align: left; text-indent: 2em; line-height: 2;">';
+        htmltop +='<div id="str" style="text-indent:2em;line-height:2;height:56px;overflow:hidden;text-align: left;">';
+        htmltop += '<p>在国务院和省级人民政府领导下，各市（地、州、盟）和县（市、区、旗）人民政府及其地震工作主管部门依法承担着防震减灾的重要职能。市县地震工作主管部门是防震减灾工作面向社会最直接、最有效的力量，是发挥政府职能、强化社会管理和公共服务的重要基础</p>';
+        htmltop +='</div>';
+        htmltop +='</p>';
+        htmltop +=' <a class="btn-u btn-u-xs pull-right" href="pageContent.html?id='+ element.id +'&type=notice" target="_blank"> 详细信息 +</a>';
+        htmltop +='<div style="clear: both;">';
+        htmltop +='</div>';
+      }else if(index <5){
+        htmllist +='<li>';
+        htmllist +='<div class="col-xs-12 col-md-12 padding-0 " style="overflow:hidden;height:2em;">';
+        htmllist +='<span class="color-green" style="margin: auto 5px;">';
+        htmllist +='&bull;';
+        htmllist +='</span>';
+        htmllist +='<a href="list.html" target="_blank"';
+        htmllist +='title="'+element.title+'" class="padding-0">';
+        htmllist +=element.title;
+        htmllist +='</a>';
+        htmllist +='</div>';
+        htmllist +='</li>';
+      }
+    });
+    $('.topnews').html(htmltop);
+    $('.topnewslist').html(htmllist);
+  },
+  // 震防要闻
+  _queryNews:function(){
+    var _self = this;
+    _self.ajaxUtil.search(_self.options.OprUrls.news.queryUrl, "summary='防震减灾'",1,9, function(respons) {
+      if (respons.data) {
+          var news = respons.data.list;
+          _self._buildNewsDom(news,'.news');
+      }
+    });
+  },
+  // 震防要闻 dom
+  _buildNewsDom:function(news,domClass){
+    var html = '';
+    html += '<ul style="list-style: none; line-height: 2; margin:0 10px;" class="padding-0">';
+    news.forEach(function(element,index){
+      if(index < 9){
+        html += '<li>';
+        html += '<div class="col-xs-12 col-md-12 padding-0" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">';
+        html += '<span class="color-green" style="font-weight: 700;">';
+        html += '&bull;';
+        html += '</span>';
+        html += '<span class="font-color6">';
+        html += '<a href="pageContent.html?id='+ element.id +'&type=news" target="blank"';
+        html += 'title="'+ element.title +'"> ';
+        html += element.title;
+        html += ' </a>';
+        html += '</span>';
+        html += '</div>';
+        html += '</li>';
+      }
+    });
+    html += '</ul>';
+    $(domClass).html(html);
+  },
     // 震防要闻
     _queryNewsOfPolicy:function(){
       var _self = this;
@@ -188,6 +226,26 @@
             _self._buildNewsDom(policy2,'.policy2');
             _self._buildNewsDom(policy3,'.policy3');
             _self._buildNewsDom(policy4,'.policy4');
+        }
+      });
+    },
+    // 安居工程
+    _queryNewsOfProject:function(){
+      var _self = this;
+      _self.ajaxUtil.search(_self.options.OprUrls.news.queryUrl, "code='500003'",1,100, function(respons) {
+        if (respons.data) {
+            var news = respons.data.list;
+            var project1 = [];
+            var project2 = [];
+            news.forEach(element => {
+              if(element.summary == '校安工程'){
+                project1.push(element);
+              }else if(element.summary == '农居工程'){
+                project2.push(element);
+              }
+            });
+            _self._buildNewsDom(project1,'.project1');
+            _self._buildNewsDom(project2,'.project2');
         }
       });
     },
