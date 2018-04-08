@@ -59,6 +59,10 @@ define('application/project', ['utils/ajaxUtil', 'utils/common'], function(ajaxU
                 _self._addProject();
             });
         },
+        _formartUrl: function(url) {
+            var _self = this;
+            return url.indexOf(window.location.host) > -1 ? url : _self.options.proxyUrl + '?' + url;
+        },
         _addProject:function(){
             var _self = this;
             try {

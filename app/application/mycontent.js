@@ -39,29 +39,26 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                 _self._queryProject();
             });
             $('#submitChange').on('click',function(){
+                alert('nihao');
                 var user = {
                     id:_self.userId,
                     name: _self.username,
                     email: $('#recipient-email').val(),
                     fullname:$('#recipient-fullname').val(),
                     mobile:$('#recipient-mobile').val(),
-                    sex: $('#recipient-sex').val(),
+                    sex:$('#recipient-sex').val(),
                     company: $('#recipient-company').val()
                 };
-                // _self.ajaxUtil._ajaxPost(_self.options.OprUrls.user.updateUrl, user, function(respons) {
-                //     if (respons.data) {
 
-                //     }
-                // });
                 try {
                     $.ajax({
                         type: "POST",
-                        url: _self._formartUrl(_self.options.OprUrls.user.updateUrl),
+                        url: _self.options.OprUrls.user.updateUrl,
                         data : JSON.stringify(user),
                         contentType: "application/json",
                         dataType: "json",
                         headers:{
-                            Authorization:"bearer "+sessionStorage.token
+                            Authorization:"bearer " + sessionStorage.token
                         },
                         success: function(data, status, xhr) {
                             if (data.result) {
@@ -109,7 +106,8 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                     },
                 });
             } catch (e) {
-                }
+                
+            }
 
         },
         _buildSelfDom:function(info){
@@ -280,9 +278,11 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
                     html += '<a class="btn btn-xs btn-danger" href="'+ _self.options.OprUrls.project.download+element.projectid+'" target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
                     html += ' 报告下载';
                     html += '</a> ';
-                    html += '<a class="btn btn-xs btn-info" href="accept.html?id='+ element.projectid +'" target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
-                    html += '申请验收';
-                    html += '</a> ';
+                    if(element.status == '200004'){
+                        html += '<a class="btn btn-xs btn-info" href="accept.html?id='+ element.projectid +'" target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
+                        html += '申请验收';
+                        html += '</a> ';
+                    }
                 }else if(element.typename == '竣工验收' && element.statusname == '已发证'){
                     html += '<a class="btn btn-xs btn-danger" href="'+ _self.options.OprUrls.project.downloadAccept+element.projectid+'" target="_blank" style="font-weight:100;margin-bottom:0px !important;"">';
                     html += ' 报告下载';

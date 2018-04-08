@@ -16,6 +16,10 @@ define('application/register', ['utils/ajaxUtil', 'utils/common'], function(ajax
             var _self = this;
             $('#sendcode').on('click',function(){
                 var mobile = $('#registerMobile').val();
+                var isMobile=/^(?:13\d|15\d)\d{5}(\d{3}|\*{3})$/;
+                if(isMobile.test(mobile)){
+                    $('#sendcode').val('已发送');
+                }
                 try {
                     $.ajax({
                         type: "GET",
