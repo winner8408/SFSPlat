@@ -106,36 +106,31 @@
       html += '</div>';
       html += '<div class="collapse navbar-collapse navbar-responsive-collapse">';
       html += '<ul class="nav navbar-nav pull-right">';
+
       html += '<li class="active">';
-      html += '<a href="index.html">';
-      html += '首页';
-      html += '</a>';
+      html += '<a href="index.html">首页</a>';
       html += '</li>';
+
       html += '<li class="mega-menu-fullwidth">';
-      html += '<a href="list.html" target="_blank">';
-      html += '震防规划';
-      html += '</a>';
+      html += '<a href="list.html">震防资讯</a>';
       html += '</li>';
+
       html += '<li class="mega-menu-fullwidth">';
-      html += '<a href="list.html" target="_blank">';
-      html += '安居工程';
-      html += '</a>';
+      html += '<a href="list.html">安居工程</a>';
       html += '</li>';
+
       html += '<li class="mega-menu-fullwidth">';
-      html += '<a href="list.html" target="_blank">';
-      html += '办事指南';
-      html += '</a>';
+      html += '<a href="list.html">办事指南</a>';
       html += '</li>';
+
       html += '<li class="mega-menu-fullwidth">';
-      html += '<a href="list.html" target="_blank">';
-      html += '信息公开';
-      html += '</a>';
+      html += '<a href="list.html">信息公开</a>';
       html += '</li>';
+
       html += '<li class="mega-menu-fullwidth">';
-      html += '<a href="list.html" target="_blank">';
-      html += '关于';
-      html += '</a>';
+      html += '<a href="list.html">关于</a>';
       html += '</li>';
+      
       html += '</ul>';
       html += '</div>';
       html += '</div>';
@@ -192,7 +187,7 @@
       html += '<div class="row">';
       
       html += '<div class="col-md-6 col-sm-12">';
-      html += '<p class="no-margin" style="font-size:12px!important;">中国地震局地球物理研究所主办&nbsp;';
+      html += '<p class="no-margin pull-right" style="font-size:12px!important;">中国地震局地球物理研究所主办&nbsp;';
       html += '<a href="#" target="_blank">关于我们</a>|';
       html += '<a href="#" target="_blank">联系我们</a>|';
       html += '<a href="#" target="_blank">网站声明</a>|';
@@ -201,7 +196,7 @@
       html += '</p>';
       html += '</div>';
 
-      html += '<div class="col-md-6 col-sm-12 pull-right">';
+      html += '<div class="col-md-6 col-sm-12">';
       html += '<a href="index.html">';
       html += '<span style="margin-top:5px;">';
       html += '<a href="http://www.12377.cn/" target="_blank">';

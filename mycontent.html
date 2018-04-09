@@ -62,24 +62,45 @@
          .blog-twitter .blog-twitter-inner:hover:after {
            border-top-color: #e74c3c;
          }
+        html{
+            height: 100%;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        header{
+          flex: 0 0 auto;
+        }
+
+        .main-content{
+          flex: 1 0 auto;
+        }
+
+        footer{
+          flex: 0 0 auto;
+        }
     </style>
     <script type="text/javascript" src="libs/unify/assets/plugins/jquery-1.10.2.min.js"></script>
 </head>
 <body >
-
-  <div style="width:100%; margin-left:auto;margin-right:auto;overflow:hidden; border:none;">
-      <div class="wrapper">
-        <div class="header-v5">
-          <div class="topbar-v3" >
-          </div>
-          <div class="navbar navbar-default mega-menu topNavbar" role="navigation" style="z-index: 5;">
+  <header>
+    <div style="width:100%; margin-left:auto;margin-right:auto;overflow:hidden; border:none;">
+        <div class="wrapper">
+          <div class="header-v5">
+            <div class="topbar-v3" >
+            </div>
+            <div class="navbar navbar-default mega-menu topNavbar" role="navigation" style="z-index: 5;">
+            </div>
           </div>
         </div>
-      </div>
-  </div>
+    </div>
+  </header>
 
-  <div class="styleSwitcher">
-  </div>
+  <section class="main-content">
+    <div class="styleSwitcher">
+    </div>
 
     <div class="breadcrumbs padding-0 margin-bottom-20" style="background-image: none; background-color: #fcfcfc; ">
       <div class="breadcrumbs padding-0" style="background-image: none; background-color: #fcfcfc;">
@@ -147,49 +168,52 @@
         </div>
       </div>
     </div>
-
-
-  
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">更新信息</h4>
-        </div>
-        <div class="modal-body">
-            <form style="margin:5px 50px;">
-                <div class="form-group">
-                  <label for="recipient-email" class="control-label">邮箱地址:</label>
-                  <input type="text" class="form-control" id="recipient-email">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-fullname" class="control-label">全名:</label>
-                  <input type="text" class="form-control" id="recipient-fullname">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-sex" class="control-label">性别:</label>
-                  <input type="text" class="form-control" id="recipient-sex">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-mobile" class="control-label">联系电话:</label>
-                  <input type="text" class="form-control" id="recipient-mobile">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-company" class="control-label">公司全名:</label>
-                  <input type="text" class="form-control" id="recipient-company">
-                </div>
-               
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-bottom:0px;">取消</button>
-          <button type="button" class="btn btn-primary" id="submitChange">确定</button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">更新信息</h4>
+          </div>
+          <div class="modal-body">
+              <form style="margin:5px 50px;">
+                  <div class="form-group">
+                    <label for="recipient-email" class="control-label">邮箱地址:</label>
+                    <input type="text" class="form-control" id="recipient-email">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-fullname" class="control-label">全名:</label>
+                    <input type="text" class="form-control" id="recipient-fullname">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-sex" class="control-label">性别:</label>
+                    <input type="text" class="form-control" id="recipient-sex">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-mobile" class="control-label">联系电话:</label>
+                    <input type="text" class="form-control" id="recipient-mobile">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-company" class="control-label">公司全名:</label>
+                    <input type="text" class="form-control" id="recipient-company">
+                  </div>
+                
+                </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-bottom:0px;">取消</button>
+            <button type="button" class="btn btn-primary" id="submitChange">确定</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <footer>
+      <div id="footer-default" class="footer-default">
+      </div>
+  </footer>
 
 </body>
 </html>
