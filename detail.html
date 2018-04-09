@@ -48,64 +48,91 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="libs/unify/assets/css/custom.css">	
-		<link rel="stylesheet" href="css/native.css"> 
+    <link rel="stylesheet" href="css/native.css"> 
+    <style>
+           html{
+              height: 100%;
+          }
+          body{
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+          }
+           header{
+            flex: 0 0 auto;
+          }
+
+          .main-content{
+            flex: 1 0 auto;
+          }
+
+          footer{
+            flex: 0 0 auto;
+          }
+    </style>
     <script type="text/javascript" src="libs/unify/assets/plugins/jquery-1.10.2.min.js"></script>
 </head>
 <body >
-
-  <div style="width:100%; margin-left:auto;margin-right:auto;overflow:hidden; border:none;">
-      <div class="wrapper">
-        <div class="header-v5">
-          <div class="topbar-v3" >
-          </div>
-          <div class="navbar navbar-default mega-menu topNavbar" role="navigation" style="z-index: 5;">
+  <header>
+    <div style="width:100%; margin-left:auto;margin-right:auto;overflow:hidden; border:none;">
+        <div class="wrapper">
+          <div class="header-v5">
+            <div class="topbar-v3" >
+            </div>
+            <div class="navbar navbar-default mega-menu topNavbar" role="navigation" style="z-index: 5;">
+            </div>
           </div>
         </div>
-      </div>
-  </div>
-
-    <div class="styleSwitcher">
     </div>
+  </header>
 
-    <div class="breadcrumbs padding-0 margin-bottom-20" style="background-image: none; background-color: #fcfcfc; ">
-      <div class="breadcrumbs padding-0" style="background-image: none; background-color: #fcfcfc;">
-        <div class="container" style="padding: 0 15px;">
-          <ul class="breadcrumb padding-0">
-            <li>
-              <a href="index.html">首页</a>
-            </li>
-            <li class="active">
-              我的申请
-            </li>
-          </ul>
+  <section class="main-content">
+      <div class="styleSwitcher">
         </div>
-      </div>
-    </div>
     
-    <div class="container" style="margin-top: 15px;">
-      <div class="row">
-          <div class="col-md-12" id="con_a_1" style="display: block;">
-              <div class="tab-pane in active" style="padding: 16px 20px; border: 1px #f0f0f0 solid;">
-                <div class="row">
-                  <div class="col-md-12" style="line-height: 2em;">
-                    <h3 style="color: #3cace7;">
-                      <span style="width: 50px; float: left;" class="center">
-                        <i class="fa fa-file-text-o">
-                        </i>
-                      </span>
-                      参数确定
-                    </h3>
-                    <table id="detailTable" border="1" width="100%" style="text-align:center;">
+        <div class="breadcrumbs padding-0 margin-bottom-20" style="background-image: none; background-color: #fcfcfc; ">
+          <div class="breadcrumbs padding-0" style="background-image: none; background-color: #fcfcfc;">
+            <div class="container" style="padding: 0 15px;">
+              <ul class="breadcrumb padding-0">
+                <li>
+                  <a href="index.html">首页</a>
+                </li>
+                <li class="active">
+                  我的申请
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         
-                    </table>
+        <div class="container" style="margin-top: 15px;">
+          <div class="row">
+              <div class="col-md-12" id="con_a_1" style="display: block;">
+                  <div class="tab-pane in active" style="padding: 16px 20px; border: 1px #f0f0f0 solid;">
+                    <div class="row">
+                      <div class="col-md-12" style="line-height: 2em;">
+                        <h3 style="color: #3cace7;">
+                          <span style="width: 50px; float: left;" class="center">
+                            <i class="fa fa-file-text-o">
+                            </i>
+                          </span>
+                          参数确定
+                        </h3>
+                        <table id="detailTable" border="1" width="100%" style="text-align:center;font-size:1.6rem;line-height:2.4rem;">
+            
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-      </div>
-    </div>
+          </div>
+        </div>
+  </section>
+
+  <footer>
     <div id="footer-default" class="footer-default">
     </div>
+  </footer>
 
 </body>
 </html>
