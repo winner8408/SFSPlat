@@ -117,12 +117,12 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
             html += '<td style="text-align: center; width: 15%; height: 35px; border-left: 1px solid #dfdfdf; background-color: #f5f5f5;">';
             html += '<i class="fa fa-user"></i>&nbsp;登录名';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;">' + info.name;
+            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;">' + info.name?info.name:'';
             html += '</td>';
             html += '<td style="text-align: center; width: 15%; height: 35px; background-color: #f5f5f5;">';
             html += '<i class="fa fa-envelope-o"></i>&nbsp;邮箱地址';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-right: 1px solid #dfdfdf;">'+ info.email;
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-right: 1px solid #dfdfdf;">'+ info.email?info.email:'';
             html += '</td>';
                       
             html += '</tr>';
@@ -131,12 +131,12 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
             html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;border-left: 1px solid #dfdfdf;">';
             html += '<i class="fa fa-user-secret"></i>&nbsp;全名';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+ info.fullname;
+            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+ info.fullname?info.fullname:'';
             html += '</td>';
             html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
             html += '<i class="fa fa-fax"></i>&nbsp;联系电话';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf;">' + info.mobile;
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf;">' + info.mobile?info.mobile:'';
             html += '</td> ';
             html += '</tr>';
 
@@ -144,12 +144,12 @@ define('application/mycontent', ['utils/ajaxUtil', 'utils/common'], function(aja
             html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;border-left: 1px solid #dfdfdf;">';
             html += '<i class="fa fa-venus-mars"></i>&nbsp;性别';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+info.sex;
+            html += '<td style="padding-left: 5px; text-align: left; width: 15%; height: 35px;border-top: 1px solid #dfdfdf;">'+info.sex?info.sex:'';
             html += '</td>';
             html += '<td style="text-align: center; width: 15%; height: 35px;background-color: #f5f5f5;border-top: 1px solid #dfdfdf;">';
             html += '<i class="fa fa-university"></i>&nbsp;公司名称';
             html += '</td>';
-            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;border-right: 1px solid #dfdfdf;">'+info.company;
+            html += '<td style="padding-left: 5px; text-align: left; width: 30%; height: 35px;border-top: 1px solid #dfdfdf;border-right: 1px solid #dfdfdf;">'+info.company?info.company:'';
             html += '</td>';
             html += '</tr>';
 

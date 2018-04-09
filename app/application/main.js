@@ -24,6 +24,18 @@
       _self._queryNewsOfPolicy();
       //安居工程
       _self._queryNewsOfProject();
+      //创建事件
+      _self._construcEvent()
+    },
+    //创建事件
+    _construcEvent:function(){
+        $('.applyParam').on('click',function(){
+           if(sessionStorage.token){
+             window.location.href ="project.html";
+           }else{
+             window.location.href = 'login.html';
+           }
+        });
     },
     //新闻轮播图
     _queryUpNews:function(){
