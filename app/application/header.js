@@ -119,16 +119,17 @@
       html += '<a href="list.html">安居工程</a>';
       html += '</li>';
 
-      html += '<li class="mega-menu-fullwidth">';
-      html += '<a href="list.html">办事指南</a>';
-      html += '</li>';
 
       html += '<li class="mega-menu-fullwidth">';
       html += '<a href="list.html">信息公开</a>';
       html += '</li>';
 
       html += '<li class="mega-menu-fullwidth">';
-      html += '<a href="list.html">关于</a>';
+      html += '<a href="list.html">办事指南</a>';
+      html += '</li>';
+
+      html += '<li class="mega-menu-fullwidth">';
+      html += '<a href="list.html">政务公开</a>';
       html += '</li>';
       
       html += '</ul>';
