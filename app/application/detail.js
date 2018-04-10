@@ -174,6 +174,7 @@
       $('#detailTable').html(html);
     },
     _buildAccptancetDom:function(item){
+      var _self = this;
       var html = '';
       html +='<thead>';
       html +='<tr style="background-color: #e9e9e9;">';
@@ -215,13 +216,13 @@
       html +='开工时间';
       html +=' </td>';
       html +='<td >';
-      html +=item.starttime?item.starttime:'';
+      html +=item.starttime?_self.common.formatDate(item.starttime):'';
       html +='</td>';
       html +='<td  >';
       html +='竣工时间';
       html +='</td>';
       html +='<td >';
-      html +=item.completiontime?item.completiontime:'';
+      html +=item.completiontime?_self.common.formatDate(item.completiontime):'';
       html +=' </td>';
       html +='</tr>';
       html +=' <tr>';
