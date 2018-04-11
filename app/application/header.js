@@ -83,7 +83,7 @@
        html += '<li class="userInfo" style="display:none;">';
        html += '<a href="#" target="_blank" class="username">欢迎 ，陈波</a>';
        html += '<ul class="language">';
-       html += '<li><a href="mycontent.html"><i class="fa fa-user"></i>&nbsp;个人资料</a></li>';
+       html += '<li><a href="mycontent.html"><i class="fa fa-user"></i>&nbsp;个人中心</a></li>';
        html += '<li><a href="login.html"><i class="fa fa-sign-out"></i>&nbsp;退出</a></li>';
        html += '</ul>';
        html += '</li>';

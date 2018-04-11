@@ -24,6 +24,8 @@
       _self._queryNewsOfPolicy();
       //安居工程
       _self._queryNewsOfProject();
+      //政务公开
+      _self._queryNewsOfOpen();
       //创建事件
       _self._construcEvent()
     },
@@ -201,7 +203,7 @@
         html += '&bull;';
         html += '</span>';
         html += '<span class="font-color6">';
-        html += '<a href="pageContent.html?id='+ element.id +'&type=news" target="blank"';
+        html += '<a href="pageContent.html?id='+ element.id +'&type=news" target="blank" style="padding:0px;"';
         html += 'title="'+ element.title +'"> ';
         html += element.title;
         html += ' </a>';
@@ -258,6 +260,34 @@
             });
             _self._buildNewsDom(project1,'.project1');
             _self._buildNewsDom(project2,'.project2');
+        }
+      });
+    },
+    // 政务公开
+    _queryNewsOfOpen:function(){
+      var _self = this;
+      _self.ajaxUtil.search(_self.options.OprUrls.news.queryUrl, "code='500002'",1,100, function(respons) {
+        if (respons.data) {
+            var news = respons.data.list;
+            var open1 = [];
+            var open2 = [];
+            var open3 = [];
+            var open4 = [];
+            news.forEach(element => {
+              if(element.summary == '规划计划'){
+                open1.push(element);
+              }else if(element.summary == '财政资金'){
+                open2.push(element);
+              }else if (element.summary == '招标采购'){
+                open3.push(element);
+              }else if(element.summary == '行政审批'){
+                open4.push(element);
+              }
+            });
+            _self._buildNewsDom(open1,'.open1');
+            _self._buildNewsDom(open2,'.open2');
+            _self._buildNewsDom(open3,'.open3');
+            _self._buildNewsDom(open4,'.open4');
         }
       });
     },
