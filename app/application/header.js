@@ -65,14 +65,14 @@
        html += '<li>';
        html += '<a>微信</a>';
        html += '<ul class="currency">';
-       html += '<li><a href="http://mail.xa.gov.cn" target="_blank"><i class="fa fa-weixin"></i>&nbsp;微信</a></li>';
+       html += '<li><a href="http://mail.cea-igp.ac.cn/" target="_blank"><i class="fa fa-weixin"></i>&nbsp;微信</a></li>';
        html += '</ul>';
        html += '</li>';
 
        html += '<li>';
        html += '<a>邮箱</a>';
        html += '<ul class="currency">';
-       html += '<li><a href="http://mail.xa.gov.cn" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;邮箱地址</a></li>';
+       html += '<li><a href="http://mail.cea-igp.ac.cn/" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;邮箱地址</a></li>';
        html += '</ul>';
        html += '</li>';
 

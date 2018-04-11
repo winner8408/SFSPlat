@@ -11,6 +11,7 @@
       var _self = this;
       //首页 ---热点关注
       //新闻置顶  新闻轮播图 
+      // var myChart = echarts.init(document.getElementById('main_total'), 'infographic');
       _self._queryUpNews();
       // 通知公告
       _self._queryNotice();
